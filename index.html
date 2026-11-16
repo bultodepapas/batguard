@@ -7,13 +7,14 @@
 <meta property="og:title" content="BatGuard">
 <meta property="og:description" content="Red acústica pasiva contra drones: fácil de desplegar, móvil, escalable y reparable.">
 <meta property="og:type" content="website">
+<meta name="theme-color" content="#1b1f16">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%2044%22%3E%3Cpath%20d%3D%22M50%2018%20C48.5%2014%2047.5%2011.5%2046.5%208%20L45%2015.5%20C40%2016%2034%2013%2028%208%20C21%206%2012%208%202%2016%20C8%2017%2011%2020%2012%2025%20C17%2022%2021%2023%2024%2028%20C28%2024%2033%2025%2036%2030%20C40%2027%2044%2028%2047%2033%20L50%2038%20L53%2033%20C56%2028%2060%2027%2064%2030%20C67%2025%2072%2024%2076%2028%20C79%2023%2083%2022%2088%2025%20C89%2020%2092%2017%2098%2016%20C88%208%2079%206%2072%208%20C66%2013%2060%2016%2055%2015.5%20L53.5%208%20C52.5%2011.5%2051.5%2014%2050%2018%20Z%22%20fill%3D%22%234d5f2b%22/%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px;font-family:system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>BatGuard</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Big+Shoulders+Stencil+Display:wght@800;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Big+Shoulders+Stencil+Display:wght@900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap">
 <style>
 /* Paleta de campaña: verde oliva, piedra y ámbar de señalización. Layout: pila de diapositivas con regla graduada en cada borde superior, bandas invertidas para ritmo, tipografía de señalética industrial. Antes: una pila de "diapositivas" verticales con riel de navegación; la demo de red acústica es el centro. Mapa de campo mineral, ámbar de lámpara de sodio, nodos en verde azulado. */
 :root {
@@ -389,7 +390,7 @@ footer .wrap { font-size: .8rem; color: var(--muted); gap: 8px; }
 .doaread div { padding: 10px 14px; display: grid; gap: 2px; border-right: 1px solid var(--line); }
 .doaread div:last-child { border-right: 0; }
 .doaread span { font-size: .74rem; color: var(--muted); }
-.doaread b { font-family: var(--f-display); font-size: 1.9rem; font-weight: 750; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.doaread b { font-family: var(--f-display); font-size: 1.9rem; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1.1; }
 .doaread b.bad { color: var(--alert); }
 .scen { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
 .scen > span { font-size: .8rem; color: var(--muted); margin-right: 4px; }
@@ -553,6 +554,13 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
 .advstrip svg { width: 28px; height: 28px; color: var(--accent); }
 @media (max-width: 980px) { .advstrip { grid-template-columns: repeat(4, minmax(0, 1fr)); } .advstrip a:nth-child(4) { border-right: 0; } .advstrip a:nth-child(-n+4) { border-bottom: 1px solid var(--line); } }
 @media (max-width: 520px) { .advstrip { grid-template-columns: repeat(2, minmax(0, 1fr)); } .advstrip a { border-right: 0; border-bottom: 1px solid var(--line); } .advstrip a:nth-child(odd) { border-right: 1px solid var(--line); } .advstrip a:nth-last-child(-n+2) { border-bottom: 0; } }
+
+@media (max-width: 520px) {
+  .caps8 > div { grid-template-columns: 36px minmax(0, 1fr); column-gap: 14px; row-gap: 4px; padding: 16px; }
+  .caps8 svg { width: 32px; height: 32px; grid-row: span 2; }
+  .caps8 h3 { font-size: 1.3rem; align-self: end; }
+  .caps8 p { font-size: .86rem; }
+}
 </style>
 
 </head>
@@ -1042,7 +1050,6 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
 <script>
 (() => {
   const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
@@ -1052,6 +1059,9 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', readColors);
   new MutationObserver(readColors).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const visState = new WeakMap(), visIO = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => visState.set(e.target, e.isIntersecting)), { rootMargin: '150px 0px' }) : null;
+  const watchVis = el => { if (!el) return; visState.set(el, !visIO); if (visIO) visIO.observe(el); };
+  const isVis = el => !visIO || visState.get(el) === true;
   const alpha = (hex, a) => { if (!hex.startsWith('#')) return hex; const h = hex.length === 4 ? hex.slice(1).split('').map(c => c + c).join('') : hex.slice(1); const n = parseInt(h, 16); return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`; };
 
   /* ---------- Riel y navegación por teclado ---------- */
@@ -1075,6 +1085,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
   const hNodes = [[.22, .3], [.78, .26], [.84, .66], [.5, .86], [.16, .7], [.52, .5]];
   let hSrc = [.62, .38];
   function hero(t) {
+    if (!reduce && !isVis(hc)) { requestAnimationFrame(hero); return; }
     const r = hc.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1); const W = r.width, H = r.height;
     if (!W) { if (!reduce) requestAnimationFrame(hero); return; }
     if (hc.width !== Math.round(W * dpr)) { hc.width = Math.round(W * dpr); hc.height = Math.round(H * dpr); }
@@ -1131,6 +1142,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     [[-1, -1], [1, -1], [1, 1], [-1, 1]].forEach(([a, b]) => { g.beginPath(); g.arc(a * sz, b * sz, sz * .55, 0, 7); g.stroke(); });
     g.beginPath(); g.arc(0, 0, sz * .35, 0, 7); g.fill(); g.restore();
   }
+  watchVis(hc);
   requestAnimationFrame(hero);
 
   /* ---------- Cadena: cinco pasos ---------- */
@@ -1375,7 +1387,9 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     FS = Math.min(2.3, Math.max(1, W / r.width * .82));
   }
 
+  const demoSec = document.getElementById('demo'); watchVis(demoSec);
   function frame(now) {
+    if (!isVis(demoSec)) { frame.last = now; requestAnimationFrame(frame); return; }
     const dt = Math.min(.05, (now - (frame.last || now)) / 1000); frame.last = now; simT += dt;
     if (auto && !dragging) { const s = simT; drone.x = 500 + 360 * Math.cos(s * .11) + 60 * Math.sin(s * .37); drone.y = 320 + 220 * Math.sin(s * .17); }
     hist.push({ t: simT, x: drone.x, y: drone.y }); while (hist.length && hist[0].t < simT - 4) hist.shift();
@@ -1386,7 +1400,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     else if (n0) { n0.x += (n0.ax - n0.x) * .05; n0.y += (n0.ay - n0.y) * .05; }
     if (simT - lastTick > WINDOW) { lastTick = simT; tick(); }
     if (ui.cov.checked && simT - covAt > 1) { covAt = simT; buildCov(); }
-    fitMap(); draw(); drawTL(); drawPrec();
+    fitMap(); draw(); frame.n = (frame.n || 0) + 1; if (frame.n % 3 === 0) { drawTL(); drawPrec(); }
     requestAnimationFrame(frame);
   }
 
@@ -1657,7 +1671,9 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     }
     return { score: best, f: bf, h: bh };
   }
+  const firmaSec = document.getElementById('firma'); watchVis(firmaSec);
   function specFrame(now) {
+    if (!isVis(firmaSec) && !(actx && actx.state === 'running')) { requestAnimationFrame(specFrame); return; }
     if (now - specLast > 33) {
       specLast = now; sigT += .033;
       const P = spectrum(sigT); lastCol = P;
@@ -1764,13 +1780,13 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
   showLayer(0);
 
   /* ---------- Nodo en 3D (Three.js) ---------- */
-  try { (function initNode3D() {
+  function initNode3DSafe() { try { (function initNode3D() {
     const host = document.getElementById('node3d');
     if (!host || !window.THREE) return;
     let renderer;
     try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); } catch (e) { return; }
     document.getElementById('explodeSvg').setAttribute('hidden', ''); host.hidden = false; document.getElementById('n3ctl').hidden = false;
-    renderer.setPixelRatio(Math.min(2, devicePixelRatio || 1));
+    renderer.setPixelRatio(Math.min(1.5, devicePixelRatio || 1));
     host.prepend(renderer.domElement);
     const scene = new THREE.Scene();
     const cam = new THREE.PerspectiveCamera(30, 1, .1, 100);
@@ -1864,8 +1880,10 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
 
     const passT = [-9, -9, -9, -9], v = new THREE.Vector3(); let t3 = 0, last = 0, prevS = 9;
     function resize() { const w = host.clientWidth, h = Math.round(w * .82); if (renderer.domElement.width !== Math.round(w * renderer.getPixelRatio())) { renderer.setSize(w, h, false); renderer.domElement.style.width = '100%'; renderer.domElement.style.height = h + 'px'; cam.aspect = w / h; cam.updateProjectionMatrix(); } }
+    watchVis(host);
     function loop(now) {
       try {
+      if (!isVis(host)) { last = now; requestAnimationFrame(loop); return; }
       const dt = Math.min(.05, (now - (last || now)) / 1000); last = now; t3 += dt;
       resize();
       explode += (expTarget - explode) * Math.min(1, dt * 6);
@@ -1890,7 +1908,13 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
       } catch (err) { document.getElementById('explodeSvg').removeAttribute('hidden'); host.hidden = true; document.getElementById('n3ctl').hidden = true; }
     }
     requestAnimationFrame(loop);
-  })(); } catch (err) { const sv = document.getElementById('explodeSvg'); if (sv) sv.removeAttribute('hidden'); const h3 = document.getElementById('node3d'); if (h3) h3.hidden = true; const c3 = document.getElementById('n3ctl'); if (c3) c3.hidden = true; }
+  })(); } catch (err) { const sv = document.getElementById('explodeSvg'); if (sv) sv.removeAttribute('hidden'); const h3 = document.getElementById('node3d'); if (h3) h3.hidden = true; const c3 = document.getElementById('n3ctl'); if (c3) c3.hidden = true; } }
+  (function lazyThree() {
+    const sec = document.getElementById('nodo'); let started = false;
+    const load = () => { if (started) return; started = true; const sc = document.createElement('script'); sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js'; sc.onload = initNode3DSafe; document.head.appendChild(sc); };
+    if (!('IntersectionObserver' in window) || !sec) { load(); return; }
+    const o = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { o.disconnect(); load(); } }, { rootMargin: '900px 0px' }); o.observe(sec);
+  })();
 
   /* ---------- Escena de despliegue ---------- */
   (function deployScene() {
@@ -1936,7 +1960,9 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     }
     function label(txt, x, y, on) { g.font = `${on ? 600 : 500} ${(11.5 * FS).toFixed(1)}px "Instrument Sans", system-ui, sans-serif`; const w = g.measureText(txt).width + 10 * FS; g.fillStyle = on ? C.accent : alpha(C.surface, .92); g.fillRect(x - w / 2, y - 15 * FS, w, 17 * FS); g.fillStyle = on ? C.surface : C.ink; g.textAlign = 'center'; g.fillText(txt, x, y - 2.5 * FS); g.textAlign = 'left'; }
 
+    watchVis(cv);
     function frame(now) {
+      if (!isVis(cv)) { last = now; requestAnimationFrame(frame); return; }
       const dt = Math.min(.05, (now - (last || now)) / 1000); last = now; t += dt;
       const r = cv.getBoundingClientRect();
       if (r.width) { const dpr = Math.min(2, devicePixelRatio || 1), bw = Math.round(r.width * dpr); if (cv.width !== bw) { cv.width = bw; cv.height = Math.round(bw * H / W); } FS = Math.min(2.1, Math.max(1, W / r.width * .8)); }
@@ -2020,7 +2046,10 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
   dc.addEventListener('pointermove', e => { if (doaDrag) setTheta(toD(e)); });
   dc.addEventListener('pointerup', () => doaDrag = false); dc.addEventListener('pointercancel', () => doaDrag = false);
 
+  watchVis(dc);
   function doaFrame(now) {
+    if (!isVis(dc)) { doaFrame.last = now; requestAnimationFrame(doaFrame); return; }
+    doaFrame.k = (doaFrame.k || 0) + 1; if (doaFrame.k % 2) { requestAnimationFrame(doaFrame); return; }
     const dt = Math.min(.05, (now - (doaFrame.last || now)) / 1000); doaFrame.last = now; doaT += dt;
     if (psiTarget !== null) { const d = wrap(psiTarget - psi); psi += Math.sign(d) * Math.min(Math.abs(d), dt * 2.2); if (Math.abs(d) < .005) psiTarget = null; doaUI.psi.value = Math.round(psi * 180 / Math.PI); }
     document.getElementById('doaPsiL').textContent = `${sdeg(psi)}°`;
@@ -2127,6 +2156,12 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     els.forEach(el => ob.observe(el));
   })();
   document.querySelectorAll('.caps svg').forEach(sv => sv.querySelectorAll('path, circle, rect, ellipse').forEach(el => el.setAttribute('pathLength', '100')));
+  (function pauseSvgAnims() {
+    const svgs = [...document.querySelectorAll('#pipeSvg, .batfig svg')];
+    if (!('IntersectionObserver' in window)) return;
+    const o = new IntersectionObserver(es => es.forEach(e => { try { e.isIntersecting ? e.target.unpauseAnimations() : e.target.pauseAnimations(); } catch (_) {} }), { rootMargin: '100px 0px' });
+    svgs.forEach(sv => { try { sv.pauseAnimations(); } catch (_) {} o.observe(sv); });
+  })();
   /* ---------- Hoja de ruta ---------- */
   const road = [
     ['F0', 'Arquitectura y requisitos', 'full', 'Veinte requisitos trazables del producto, contratos entre nodo, red y central, y plan de validación.', 'Completado.'],
