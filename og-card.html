@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>BatGuard: tarjeta de vista previa</title>
+<!-- Fuente de og.jpg (1200×630). Regenerar capturando esta página a 1200×630; ver docs/presentacion.md. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Big+Shoulders+Stencil+Display:wght@900&family=Instrument+Sans:wght@500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  :root { --bg: #11140e; --surface: #191d15; --ink: #e2e5d4; --muted: #9aa088; --line: #2e3526; --accent: #e3a13c; --node: #a3bd6c; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: var(--bg); color: var(--ink); }
+  body { font-family: "Instrument Sans", system-ui, sans-serif; position: relative;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 50px 50px; background-position: -1px -1px; }
+  body::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--bg) 45%, rgba(17,20,14,.55) 70%, rgba(17,20,14,.2)); }
+  .copy { position: absolute; left: 72px; top: 64px; width: 640px; display: grid; gap: 26px; }
+  .brand { display: flex; align-items: center; gap: 14px; font-family: "Big Shoulders Stencil Display", sans-serif; font-weight: 900; font-size: 34px; letter-spacing: .08em; }
+  .brand svg { width: 64px; height: auto; color: var(--ink); }
+  h1 { margin: 0; font-family: "Big Shoulders Display", sans-serif; font-weight: 800; font-size: 76px; line-height: .93; text-transform: uppercase; }
+  h1 span { color: var(--accent); }
+  .sub { font-size: 25px; color: var(--muted); line-height: 1.35; max-width: 600px; }
+  .tags { display: flex; gap: 10px; flex-wrap: wrap; }
+  .tags b { font-weight: 600; font-size: 18px; border: 1.5px solid var(--line); background: var(--surface); padding: 6px 14px; border-radius: 3px; }
+  .url { position: absolute; right: 56px; bottom: 34px; font-family: "IBM Plex Mono", monospace; font-size: 18px; color: var(--muted); }
+  .scope { position: absolute; right: 40px; top: 50px; width: 470px; height: 470px; }
+</style>
+</head>
+<body>
+  <svg class="scope" viewBox="0 0 470 470" aria-hidden="true">
+    <g fill="none" stroke="#2e3526" stroke-width="1.5"><circle cx="235" cy="235" r="225"/><circle cx="235" cy="235" r="150"/><circle cx="235" cy="235" r="75"/><path d="M235 10v450M10 235h450" stroke-dasharray="3 6"/></g>
+    <g stroke="#a3bd6c" stroke-width="2" opacity=".75">
+      <line x1="95" y1="120" x2="318" y2="150"/><line x1="380" y1="300" x2="318" y2="150"/><line x1="160" y1="380" x2="318" y2="150"/><line x1="300" y1="400" x2="318" y2="150"/><line x1="420" y1="140" x2="318" y2="150"/>
+    </g>
+    <g fill="none" stroke="#e3a13c" stroke-width="1.8"><circle cx="318" cy="150" r="40" opacity=".7"/><circle cx="318" cy="150" r="80" opacity=".4"/><circle cx="318" cy="150" r="125" opacity=".2"/></g>
+    <ellipse cx="318" cy="150" rx="26" ry="15" transform="rotate(-25 318 150)" fill="rgba(227,161,60,.25)" stroke="#e3a13c" stroke-width="2"/>
+    <g stroke="#e2e5d4" stroke-width="3" fill="none"><path d="M306 138l24 24M330 138l-24 24"/><circle cx="306" cy="138" r="6"/><circle cx="330" cy="138" r="6"/><circle cx="306" cy="162" r="6"/><circle cx="330" cy="162" r="6"/></g>
+    <g fill="#11140e" stroke="#a3bd6c" stroke-width="3">
+      <circle cx="95" cy="120" r="9"/><circle cx="380" cy="300" r="9"/><circle cx="160" cy="380" r="9"/><circle cx="300" cy="400" r="9"/><circle cx="420" cy="140" r="9"/>
+    </g>
+    <g fill="#a3bd6c"><circle cx="95" cy="120" r="3.5"/><circle cx="380" cy="300" r="3.5"/><circle cx="160" cy="380" r="3.5"/><circle cx="300" cy="400" r="3.5"/><circle cx="420" cy="140" r="3.5"/></g>
+  </svg>
+  <div class="copy">
+    <div class="brand">
+      <svg viewBox="0 0 100 44" aria-hidden="true"><path fill="currentColor" d="M50 18 C48.5 14 47.5 11.5 46.5 8 L45 15.5 C40 16 34 13 28 8 C21 6 12 8 2 16 C8 17 11 20 12 25 C17 22 21 23 24 28 C28 24 33 25 36 30 C40 27 44 28 47 33 L50 38 L53 33 C56 28 60 27 64 30 C67 25 72 24 76 28 C79 23 83 22 88 25 C89 20 92 17 98 16 C88 8 79 6 72 8 C66 13 60 16 55 15.5 L53.5 8 C52.5 11.5 51.5 14 50 18 Z"/></svg>
+      BATGUARD
+    </div>
+    <h1>Cada dron suena.<br><span>Lo escuchamos</span><br>y lo ubicamos.</h1>
+    <div class="sub">Red acústica pasiva contra drones. Nodos asequibles que se despliegan en cualquier soporte y muestran al dron en un mapa 2D.</div>
+    <div class="tags"><b>Pasivo</b><b>Móvil</b><b>50+ nodos</b><b>Reparable</b></div>
+  </div>
+  <div class="url">bultodepapas.github.io/batguard</div>
+</body>
+</html>

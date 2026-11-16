@@ -8,6 +8,8 @@ Todo el sitio está en `index.html`: HTML, CSS y JavaScript sin paso de compilac
 
 Las simulaciones corren en el navegador con geometría y ruido ilustrativos. No son resultados de campo.
 
+`og.jpg` es la imagen de vista previa que muestran las redes al compartir el enlace; su fuente es `og-card.html`.
+
 ## Mantenimiento
 
 Este repositorio es una réplica publicada del directorio `presentacion/` del repositorio de desarrollo del proyecto, sincronizada con `git subtree`. Los cambios se hacen allí y se publican con `git subtree push`. Un commit hecho directamente aquí bloquea la siguiente publicación hasta integrarlo con `git subtree pull`.
