@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="BatGuard: red acústica pasiva contra drones. Nodos asequibles que se despliegan en cualquier soporte y ubican al dron en un mapa 2D.">
+<meta name="description" content="BatGuard: red acústica pasiva contra drones. Nodos de ocho micrófonos y super nodos de hasta 32 que se despliegan en cualquier soporte y ubican al dron en un mapa 2D.">
 <meta property="og:title" content="BatGuard">
 <meta property="og:description" content="Red acústica pasiva contra drones: fácil de desplegar, móvil, escalable y reparable.">
 <meta property="og:type" content="website">
@@ -159,11 +159,11 @@ kbd { font-family: var(--f-mono); font-size: .72rem; border: 1px solid var(--lin
   border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; color: var(--muted); width: fit-content;
 }
 .stage-chip i { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); display: inline-block; }
-.facts { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 0; border-top: 1px solid var(--line); }
-.facts div { padding: 14px 14px 0 0; display: grid; gap: 2px; }
-.facts b { font-family: var(--f-display); font-size: 2.6rem; font-weight: 800; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 0; border-top: 1px solid var(--line); }
+.facts div { padding: 14px 14px 0 0; display: grid; gap: 2px; align-content: start; }
+.facts b { font-family: var(--f-display); font-size: 2.6rem; font-weight: 800; line-height: 1.1; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .facts span { font-size: .85rem; color: var(--muted); line-height: 1.35; }
-@media (max-width: 480px) { .facts { grid-template-columns: 1fr; } .facts div { padding-right: 0; } }
+@media (max-width: 640px) { .facts { grid-template-columns: repeat(2, minmax(0,1fr)); row-gap: 6px; } }
 .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
 .btn {
   font-family: var(--f-body); font-weight: 600; font-size: .95rem; border-radius: 6px; padding: 10px 18px;
@@ -549,7 +549,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
 .caps8 > div { gap: 10px; }
 .caps8 h3 { font-family: var(--f-display); font-size: 1.6rem; font-weight: 800; text-transform: uppercase; line-height: 1; letter-spacing: .005em; }
 .caps8 svg { width: 44px; height: 44px; }
-.extra { display: grid; grid-template-columns: 120px repeat(3, minmax(0, 1fr)); gap: 24px; border-top: 1px solid var(--line); padding-top: 18px; }
+.extra { display: grid; grid-template-columns: 110px repeat(4, minmax(0, 1fr)); gap: 24px; border-top: 1px solid var(--line); padding-top: 18px; }
 .extra-t { font-weight: 600; color: var(--accent); font-size: .9rem; }
 .extra b { font-weight: 600; font-size: .95rem; }
 .extra p { color: var(--muted); font-size: .88rem; margin-top: 4px; }
@@ -568,6 +568,36 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
   .caps8 h3 { font-size: 1.3rem; align-self: end; }
   .caps8 p { font-size: .86rem; }
 }
+
+/* Familia: Standard8 y super nodos Ultra */
+.fam { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 20px; align-items: start; }
+@media (max-width: 980px) { .fam { grid-template-columns: 1fr; } }
+.famvis { position: relative; border: 1px solid var(--line); border-radius: 3px; overflow: hidden; background: var(--field); min-width: 0; }
+.famvis canvas { display: block; width: 100%; height: auto; cursor: grab; touch-action: pan-y; }
+.famvis canvas:active { cursor: grabbing; }
+.famchips { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.famchips .chipbtn { text-align: center; padding-inline: 4px; }
+.famchips .chipbtn:first-child { grid-column: 1 / -1; }
+.famvis .maphint { top: 10px; bottom: auto; }
+.famcard { gap: 14px; }
+.famhead { display: grid; gap: 6px; justify-items: start; }
+.famtier { font-family: var(--f-mono); font-size: .72rem; color: var(--node); letter-spacing: .06em; text-transform: uppercase; }
+.famhead h3 { font-family: var(--f-display); font-size: 2.3rem; font-weight: 800; text-transform: uppercase; line-height: .95; }
+.famhead .pill { white-space: normal; line-height: 1.3; }
+.famread b { font-family: var(--f-display); font-size: 1.55rem; font-weight: 800; line-height: 1.1; }
+.fammsg { display: grid; gap: 2px; border-top: 1px dashed var(--line); padding-top: 10px; }
+.fammsg span { font-size: .72rem; color: var(--muted); }
+.fammsg b { font-weight: 600; font-size: .92rem; color: var(--accent); }
+.tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+@media (max-width: 860px) { .tiers { grid-template-columns: 1fr; } }
+.tiers > div { padding: 18px 20px 0 0; display: grid; gap: 6px; align-content: start; }
+@media (max-width: 860px) { .tiers > div { padding: 14px 0; border-bottom: 1px solid var(--line); } }
+.tiers .mount { font-family: var(--f-mono); font-size: .72rem; color: var(--node); }
+.tiers h3 { font-family: var(--f-display); font-size: 1.6rem; font-weight: 800; text-transform: uppercase; line-height: 1; }
+.tiers p { color: var(--muted); font-size: .92rem; }
+.famnote { font-size: 1.02rem; border-left: 3px solid var(--accent); padding-left: 16px; max-width: 75ch; }
+.famnote b { font-weight: 600; }
+.maplegend .ringkey { display: inline-block; width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--ink); vertical-align: middle; margin-right: 6px; }
 </style>
 
 </head>
@@ -583,12 +613,13 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
         <svg viewBox="0 0 100 44" aria-hidden="true" style="width:46px;height:auto"><path d="M50 18 C48.5 14 47.5 11.5 46.5 8 L45 15.5 C40 16 34 13 28 8 C21 6 12 8 2 16 C8 17 11 20 12 25 C17 22 21 23 24 28 C28 24 33 25 36 30 C40 27 44 28 47 33 L50 38 L53 33 C56 28 60 27 64 30 C67 25 72 24 76 28 C79 23 83 22 88 25 C89 20 92 17 98 16 C88 8 79 6 72 8 C66 13 60 16 55 15.5 L53.5 8 C52.5 11.5 51.5 14 50 18 Z" fill="currentColor"/></svg>
         BATGUARD
       </div>
-      <span class="stage-chip"><i></i>Arquitectura completa probada con 376 pruebas automáticas</span>
+      <span class="stage-chip"><i></i>Arquitectura completa probada con 466 pruebas automáticas</span>
       <h1>Cada dron suena. BatGuard lo escucha y lo pone en el mapa.</h1>
-      <p class="lead">Sensores acústicos pasivos, asequibles y reemplazables para bases, patrullas e infraestructura crítica. Se colocan en cualquier soporte, calculan solos su posición y orientación, y muestran en un mapa 2D dónde está el dron, con la certeza que sostiene la evidencia.</p>
+      <p class="lead">Sensores acústicos pasivos, asequibles y reemplazables para bases, patrullas e infraestructura crítica: nodos compactos de ocho micrófonos y super nodos de hasta 32 para postes y globos. Se colocan en cualquier soporte, calculan solos su posición y orientación, y muestran en un mapa 2D dónde está el dron, con la certeza que sostiene la evidencia.</p>
       <div class="facts">
         <div><b>50+</b><span>nodos por red, con el mismo manejo que dos</span></div>
         <div><b>2</b><span>nodos ya dan alerta y dirección</span></div>
+        <div><b>8–32</b><span>micrófonos por nodo, del compacto al super nodo</span></div>
         <div><b>7</b><span>formas de desplegarlo, del suelo al globo</span></div>
       </div>
       <div class="telemetry" aria-live="off">
@@ -599,7 +630,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
       </div>
       <div class="cta-row">
         <a class="btn" href="#demo">Probar la red simulada</a>
-        <a class="btn ghost" href="#despliegue">Ver el despliegue</a>
+        <a class="btn ghost" href="#familia">Ver los super nodos</a>
       </div>
       <p class="keyhint">Navega con <kbd>↓</kbd> <kbd>↑</kbd> o <kbd>Re Pág</kbd> <kbd>Av Pág</kbd></p>
     </div>
@@ -646,7 +677,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
         <p>Algunas especies, como el murciélago pálido, ni siquiera emiten: cazan en silencio escuchando los pasos de su presa. BatGuard hace lo mismo. No emite nada, escucha, compara la llegada del sonido en cada micrófono y ubica al dron sin delatarse.</p>
         <div class="batmap">
           <div><span>Murciélago</span><span>BatGuard</span></div>
-          <div><b>Dos oídos</b><b>Cuatro micrófonos por nodo</b></div>
+          <div><b>Dos oídos</b><b>Ocho micrófonos por nodo, hasta 32 en los super nodos</b></div>
           <div><b>Diferencia de llegada entre oídos</b><b>Diferencias de microsegundos entre micrófonos</b></div>
           <div><b>Caza escuchando, sin emitir</b><b>Sensor pasivo, sin firma de detección</b></div>
           <div><b>Colonias de miles de oídos</b><b>Redes de cincuenta nodos o más</b></div>
@@ -735,8 +766,8 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
 <section class="slide" id="nodo" data-label="El nodo">
   <div class="wrap">
     <div class="eyebrow"><span class="num">05</span>El nodo</div>
-    <h2>Cuatro micrófonos, microsegundos y un rumbo.</h2>
-    <p class="lead">Gira el nodo, despiézalo, inclínalo o dale la vuelta. El frente de onda toca cada micrófono en un instante distinto. Con esas diferencias, de unos cientos de microsegundos como máximo, el nodo calcula de dónde viene el sonido. Con su propia orientación, la central lleva ese rumbo al mapa.</p>
+    <h2>Ocho micrófonos, microsegundos y un rumbo.</h2>
+    <p class="lead">Gira el nodo, despiézalo, inclínalo o dale la vuelta. El frente de onda toca cada uno de sus ocho micrófonos en un instante distinto. Con esas diferencias, de unos cientos de microsegundos como máximo, el nodo calcula en 3D de dónde viene el sonido. Con su propia orientación, la central lleva ese rumbo al mapa.</p>
     <div class="nodegrid">
       <div class="explode">
         <div class="n3" id="node3d" hidden><div class="n3labels" id="n3labels"></div></div>
@@ -760,21 +791,62 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
         <div class="doactl">
           <div style="display:grid;gap:6px"><label for="doaPsi">Orientación física del nodo <b class="mono" id="doaPsiL">0°</b></label><input type="range" id="doaPsi" min="-180" max="180" value="0"></div>
           <div style="display:grid;gap:6px"><label for="doaNoise">Ruido de medición <b class="mono" id="doaNoiseL">4 µs</b></label><input type="range" id="doaNoise" min="0" max="40" value="4"></div>
+          <div style="display:grid;gap:6px"><label for="doaEl">Elevación del dron <b class="mono" id="doaElL">25°</b></label><input type="range" id="doaEl" min="0" max="70" value="25"></div>
           <label class="toggle" for="doaImu">La central usa la orientación de la IMU <input type="checkbox" id="doaImu" checked></label>
           <div class="presets"><button class="chipbtn" id="doaSpin" type="button">Girar el nodo</button></div>
         </div>
       </div>
     </div>
-    <p class="disclaimer">Vista superior simplificada: cuatro micrófonos en cruz con 90 mm entre extremos, como la referencia nominal del historial. El perfil de laboratorio usa además geometría 3D no coplanar para nodos inclinados o invertidos. Diferencia máxima de llegada: 90 mm ÷ 343 m/s ≈ 262 µs, unas 12,6 muestras a 48 kHz.</p>
+    <p class="disclaimer">Vista superior en perspectiva del cabezal Standard8: ocho micrófonos en los vértices de un cubo de 80 mm, dos tetraedros intercalados, unos 14 cm entre puertos extremos, como punto de partida del diseño. Diferencia máxima de llegada: 138,6 mm ÷ 343 m/s ≈ 404 µs, unas 19,4 muestras a 48 kHz. El nodo estima un vector 3D; la central usa su rumbo horizontal y nunca supone la altitud del dron.</p>
   </div>
 </section>
 
-<!-- 6. Despliegue -->
+<!-- 6. Familia: Standard8 y super nodos Ultra -->
+<section class="slide" id="familia" data-label="Super nodos">
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">06</span>La familia</div>
+    <h2>Ocho micrófonos de serie. Hasta treinta y dos en los super nodos.</h2>
+    <p class="lead">El nodo Standard8 lleva ocho micrófonos iguales en un cabezal 3D compacto y va en una mochila, en el suelo o en un vehículo. Donde el soporte es firme o elevado, los super nodos Ultra montan 12, 16, 24 o 32 micrófonos en un cabezal más grande, en postes y globos cautivos. Todos procesan en el lugar y envían a la central la misma observación compacta.</p>
+    <div class="fam">
+      <div class="famvis">
+        <canvas id="famCanvas" width="1000" height="600" aria-label="Cabezal de micrófonos en 3D con su montaje. Elige un modelo para ver su geometría y cómo lo cruza el frente de onda; arrastra para girarlo."></canvas>
+        <div class="maphint">Arrastra para girar el cabezal</div>
+      </div>
+      <div class="panel">
+        <div class="presets famchips" id="famChips" aria-label="Modelos de nodo"></div>
+        <div class="card famcard">
+          <div class="famhead">
+            <span class="famtier" id="famTier">–</span>
+            <h3 id="famName">–</h3>
+            <span class="pill" id="famMount">–</span>
+          </div>
+          <p class="mtext" id="famWhy"></p>
+          <div class="readout famread">
+            <div><span>Micrófonos</span><b id="famCh">–</b></div>
+            <div><span>Pares que compara</span><b id="famPairs">–</b></div>
+            <div><span>Apertura entre puertos</span><b id="famAp">–</b></div>
+            <div><span>Audio que procesa en el nodo</span><b id="famRate">–</b></div>
+          </div>
+          <div class="fammsg"><span>Lo que viaja por radio</span><b>la misma observación compacta</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="tiers">
+      <div><span class="mount">compacto · mochila · suelo · imán · lanzado</span><h3>Standard8</h3><p>Ocho micrófonos en dos tetraedros intercalados. Si se tapan o fallan dos cualesquiera, los seis restantes siguen formando un arreglo 3D.</p></div>
+      <div><span class="mount">poste · mástil · techo</span><h3>Super nodo de poste</h3><p>Ultra16 como referencia, ampliable a Ultra24 y Ultra32 en los puntos clave. El soporte firme admite un cabezal grande, con energía y datos por cable donde el sitio los ofrece.</p></div>
+      <div><span class="mount">globo cautivo</span><h3>Super nodo de globo</h3><p>Ultra12 o Ultra16 en un cabezal rígido y ligero, con protección de viento propia y una IMU que mide cada balanceo del cabezal, no del globo.</p></div>
+    </div>
+    <p class="famnote"><b>Un super nodo suma como un nodo más.</b> La central combina Standard8 y Ultra en la misma red y pesa cada observación por su calidad, no por cuántos micrófonos la produjeron.</p>
+    <p class="disclaimer">Geometrías ilustrativas, como las del software: cubo para Standard8 y esfera para los Ultra. Las aperturas son rangos de diseño entre puertos; cada cabezal se elige por desempeño medido. Los cinco perfiles ya corren en el firmware C11 y en la central simulada. Audio a 48 kHz en PCM de 16 bits.</p>
+  </div>
+</section>
+
+<!-- 7. Despliegue -->
 <section class="slide" id="despliegue" data-label="Despliegue">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">06</span>Despliegue en terreno</div>
+    <div class="eyebrow"><span class="num">07</span>Despliegue en terreno</div>
     <h2>Donde lo pongas, el nodo se ubica solo.</h2>
-    <p class="lead">En un poste, un árbol, el suelo, un vehículo, la mochila de una patrulla, un globo cautivo, o lanzado a mano. Cada nodo calcula su posición y orientación en cada captura, así que nadie tiene que nivelarlo, apuntarlo ni configurar la red de nuevo.</p>
+    <p class="lead">En un poste, un árbol, el suelo, un vehículo, la mochila de una patrulla, un globo cautivo, o lanzado a mano; en postes y globos puede ir un super nodo Ultra. Cada nodo calcula su posición y orientación en cada captura, así que nadie tiene que nivelarlo, apuntarlo ni configurar la red de nuevo.</p>
     <div class="deploy">
       <div class="scenebox">
         <canvas id="scene" width="1000" height="540" aria-label="Escena de despliegue con siete tipos de montaje. Toca un nodo para ver cómo funciona."></canvas>
@@ -811,17 +883,18 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
   </div>
 </section>
 
-<!-- 7. Demo -->
+<!-- 8. Demo -->
 <section class="slide" id="demo" data-label="Demo en vivo">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">07</span>La red en vivo</div>
+    <div class="eyebrow"><span class="num">08</span>La red en vivo</div>
     <h2>Cincuenta nodos, una imagen del cielo.</h2>
-    <p class="lead">Más nodos, más precisión. Cada nodo que oye al dron suma una dirección independiente, y la región donde puede estar se encoge: en esta simulación pasa de unos <b id="precL10">44</b> m con 10 nodos a unos <b id="precL50">11</b> m con 50. Mueve el dron, apaga nodos, gíralos o cambia el despliegue.</p>
+    <p class="lead">Más nodos, más precisión. Cada nodo que oye al dron suma una dirección independiente, y la región donde puede estar se encoge: en esta simulación pasa de unos <b id="precL10">44</b> m con 10 nodos a unos <b id="precL50">11</b> m con 50. Los anillos marcan super nodos Ultra16 en postes. Mueve el dron, apaga nodos, gíralos o cambia el despliegue.</p>
     <div class="demo">
       <div class="mapcol"><div class="mapbox">
         <canvas id="map" width="1000" height="640" aria-label="Mapa simulado de la red acústica. Arrastra el dron o toca un nodo para desconectarlo."></canvas>
         <div class="maplegend">
           <div><i style="background:var(--node)"></i>nodo que aporta, con su dirección</div>
+          <div id="ultraLegend"><b class="ringkey"></b>super nodo Ultra16 en poste</div>
           <div><i style="background:var(--warn)"></i>nodo consultado por la central</div>
           <div><i style="background:var(--alert)"></i>nodo excluido por incoherente</div>
           <div><i style="background:var(--accent)"></i>estimación, región 95 % y pista</div>
@@ -846,6 +919,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
           <div class="scen" id="layoutModes"><span>Despliegue</span><button class="chipbtn on" data-m="perimetro">Perímetro</button><button class="chipbtn" data-m="linea">En línea</button><button class="chipbtn" data-m="agrupado">Agrupado</button></div>
           </div>
           <div class="ctrl cgrp"><h4>Escenario</h4>
+          <label class="toggle" for="tUltra">Super nodos Ultra16 en postes <input type="checkbox" id="tUltra" checked></label>
           <label class="toggle" for="tCov">Mostrar mapa de cobertura <input type="checkbox" id="tCov"></label>
           <label class="toggle" for="tGen">Generador ruidoso cerca <input type="checkbox" id="tGen"></label>
           <label class="toggle" for="tMove">Un nodo se mueve mientras escucha <input type="checkbox" id="tMove" checked></label>
@@ -888,14 +962,14 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
         </div>
       </div>
     </div>
-    <p class="disclaimer">Simulación en tu navegador con geometría y ruido ilustrativos y un alcance supuesto de unos 380 m. Aplica las reglas del motor de BatGuard: pose de cada captura, propagación del sonido, exclusión de observaciones incoherentes, cooperación entre nodos y altitud que nunca se inventa.</p>
+    <p class="disclaimer">Simulación en tu navegador con geometría y ruido ilustrativos y un alcance supuesto de unos 380 m, igual para todos los nodos. Los super nodos aportan direcciones algo menos dispersas y la central las pesa por su calidad, como a cualquier otra. Aplica las reglas del motor de BatGuard: pose de cada captura, propagación del sonido, exclusión de observaciones incoherentes, cooperación entre nodos y altitud que nunca se inventa.</p>
   </div>
 </section>
 
 <!-- 5. Capacidades -->
 <section class="slide" id="capacidades" data-label="Ventajas">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">08</span>Ventajas</div>
+    <div class="eyebrow"><span class="num">09</span>Ventajas</div>
     <h2>Rápido de desplegar, fácil de operar, simple de reparar.</h2>
     <p class="lead">Ocho razones por las que BatGuard encaja en una unidad en terreno.</p>
     <div class="caps caps8">
@@ -932,7 +1006,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
       <div>
         <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="31" r="2.5"/><circle cx="20" cy="31" r="2.5"/><circle cx="33" cy="31" r="2.5"/><circle cx="13.5" cy="19" r="2.5"/><circle cx="26.5" cy="19" r="2.5"/><circle cx="20" cy="7" r="2.5"/><path d="M8.5 28.5l3.5-7M18.5 28.5l-3.5-7M21.5 28.5l3.5-7M31.5 28.5l-3.5-7M15 16.5l3.5-7M25 16.5l-3.5-7"/></svg>
         <h3>Escalable</h3>
-        <p>De 2 a 50 nodos o más con el mismo manejo. Cada nodo que se suma achica la región donde puede estar el dron.</p>
+        <p>De 2 a 50 nodos o más con el mismo manejo, y de 8 a 32 micrófonos por nodo según el soporte. Cada nodo que se suma achica la región donde puede estar el dron.</p>
       </div>
       <div>
         <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M27 5.5a7.5 7.5 0 0 0-7.2 9.6L6.6 28.3a3 3 0 0 0 4.2 4.2L24 19.3a7.5 7.5 0 0 0 9.6-7.2l-4.6 4.6-4.6-1.3-1.3-4.6z"/></svg>
@@ -945,6 +1019,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
       <div><b>No inventa un punto</b><p>Muestra incertidumbre y antigüedad: una región amplia se ve distinta de una posición firme.</p></div>
       <div><b>Redes que no se mezclan</b><p>Credenciales por nodo. Un equipo ajeno no entra en la red aunque esté al alcance de radio.</p></div>
       <div><b>Escucha cooperativa</b><p>Ante una sospecha, la central pide a otros nodos que revisen ese instante con su propia evidencia.</p></div>
+      <div><b>Red mixta</b><p>Nodos Standard8 y super nodos Ultra en la misma red, con el mismo emparejamiento y la misma observación.</p></div>
     </div>
   </div>
 </section>
@@ -952,7 +1027,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
 <!-- 6. Comparativa -->
 <section class="slide" id="comparativa" data-label="Comparativa">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">09</span>Dónde encaja</div>
+    <div class="eyebrow"><span class="num">10</span>Dónde encaja</div>
     <h2>Una capa más del sistema contra drones, no un reemplazo.</h2>
     <p class="lead">BatGuard cubre los huecos que dejan las otras tecnologías y se suma a ellas en el mismo sistema.</p>
     <div class="tablewrap">
@@ -968,22 +1043,22 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
         </tbody>
       </table>
     </div>
-    <p class="muted" style="font-size:.85rem">BatGuard mide la calidad de cada observación y combina decenas de nodos baratos para sostener la imagen aun con viento, ruido o nodos perdidos.</p>
+    <p class="muted" style="font-size:.85rem">BatGuard mide la calidad de cada observación y combina decenas de nodos baratos, con super nodos en los puntos clave, para sostener la imagen aun con viento, ruido o nodos perdidos.</p>
   </div>
 </section>
 
 <!-- 7. Usos -->
 <section class="slide" id="usos" data-label="Casos de uso">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">10</span>Casos de uso</div>
+    <div class="eyebrow"><span class="num">11</span>Casos de uso</div>
     <h2>Para unidades que necesitan saber qué vuela y por dónde viene.</h2>
     <div class="uses">
-      <div class="use"><span class="mount">postes · mástiles · suelo</span><h3>Base avanzada y perímetro</h3><p>Una red que rodea el campamento y avisa por dónde se acerca un dron, día y noche.</p></div>
+      <div class="use"><span class="mount">Standard8 en suelo · Ultra16 en mástiles</span><h3>Base avanzada y perímetro</h3><p>Una red que rodea el campamento y avisa por dónde se acerca un dron, día y noche, con super nodos en los mástiles.</p></div>
       <div class="use"><span class="mount">portado por personas</span><h3>Patrulla a pie</h3><p>Nodos en la mochila que siguen escuchando mientras el equipo se mueve.</p></div>
       <div class="use"><span class="mount">magnético</span><h3>Convoy y vehículos detenidos</h3><p>Nodos pegados a vehículos en un alto o un punto de reunión, sin herramientas.</p></div>
       <div class="use"><span class="mount">lanzado · suelo</span><h3>Posición avanzada temporal</h3><p>Cobertura rápida en un punto nuevo: se lanzan, se ubican solos y empiezan a aportar.</p></div>
-      <div class="use"><span class="mount">globo cautivo · mástil</span><h3>Escucha en altura</h3><p>Nodos elevados por encima del relieve y la vegetación para ampliar el horizonte acústico.</p></div>
-      <div class="use"><span class="mount">postes · techos · árboles</span><h3>Infraestructura crítica</h3><p>Energía, comunicaciones, depósitos y puestos de control con perímetros extensos y poco personal.</p></div>
+      <div class="use"><span class="mount">super nodo · globo cautivo · mástil</span><h3>Escucha en altura</h3><p>Super nodos Ultra de 12 a 32 micrófonos por encima del relieve y la vegetación, donde el soporte admite un cabezal mayor.</p></div>
+      <div class="use"><span class="mount">postes · techos · árboles</span><h3>Infraestructura crítica</h3><p>Energía, comunicaciones, depósitos y puestos de control con perímetros extensos y poco personal. Super nodos fijos con energía y datos por cable.</p></div>
     </div>
     <p class="muted" style="font-size:.85rem">BatGuard detecta, avisa, localiza y sigue, y entrega esa información al sistema de defensa que la use. No actúa sobre la aeronave: decidir si un vuelo es hostil y cómo responder corresponde al mando y a sus reglas.</p>
   </div>
@@ -992,13 +1067,13 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
 <!-- 8. Evidencia -->
 <section class="slide inverse" id="evidencia" data-label="Lo construido">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">11</span>Lo que ya está construido</div>
-    <h2>Doce rondas de ingeniería con evidencia reproducible.</h2>
-    <p class="lead">Cada pieza de la cadena, de la captura a la posición horizontal, ya corre en simulación con firmware C11 y pruebas automáticas. Cada resultado queda con sus datos y sus hashes, listo para auditar.</p>
+    <div class="eyebrow"><span class="num">12</span>Lo que ya está construido</div>
+    <h2>Dieciocho rondas de ingeniería con evidencia reproducible.</h2>
+    <p class="lead">Cada pieza de la cadena, de la captura a la posición horizontal, ya corre en simulación con firmware C11 y pruebas automáticas, para el Standard8 y para los cuatro super nodos Ultra. Cada resultado queda con sus datos y sus hashes, listo para auditar.</p>
     <div class="stats">
-      <div><b>376</b><span>pruebas automáticas aprobadas en el último corte</span></div>
+      <div><b>466</b><span>pruebas automáticas aprobadas en el último corte</span></div>
       <div><b>50</b><span>nodos simulados en red con credenciales y reconexión</span></div>
-      <div><b>12</b><span>rondas de investigación y desarrollo documentadas</span></div>
+      <div><b>5</b><span>perfiles de cabezal en firmware, de 8 a 32 micrófonos</span></div>
       <div><b>2 → 10</b><span>nodos con uno que se mueve y aporta a la posición</span></div>
     </div>
     <div class="evsum" id="evSum"></div>
@@ -1016,7 +1091,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
 <!-- 9. Hoja de ruta -->
 <section class="slide" id="ruta" data-label="Hoja de ruta">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">12</span>Hoja de ruta</div>
+    <div class="eyebrow"><span class="num">13</span>Hoja de ruta</div>
     <h2>De la simulación a redes de cincuenta nodos.</h2>
     <p class="lead">El mismo modelo operativo sirve para dos nodos o para cincuenta, y más allá. Cada fase suma capacidad sin cambiar cómo se despliega ni cómo se opera.</p>
     <div class="roadlegend">
@@ -1032,11 +1107,11 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
 <!-- 10. Inversión -->
 <section class="slide inverse" id="inversion" data-label="La oportunidad">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">13</span>La oportunidad</div>
+    <div class="eyebrow"><span class="num">14</span>La oportunidad</div>
     <h2>Buscamos socios para llevarlo al terreno.</h2>
     <p class="lead">La siguiente etapa convierte la arquitectura probada en simulación en diez nodos reales escuchando drones reales, con escenarios definidos junto a usuarios de defensa. Cada aporte responde preguntas que hoy están abiertas a propósito.</p>
     <div class="unlock">
-      <div><span class="q">Hardware</span><h3>Nodo de campo robusto</h3><p>Cabezal de micrófonos, procesador, pose, radio, energía y carcasa en una unidad lista para el terreno y producible en serie.</p></div>
+      <div><span class="q">Hardware</span><h3>Nodo de campo y super nodos</h3><p>El Standard8 de ocho micrófonos, con procesador, pose, radio LoRa, energía y carcasa, listo para el terreno y producible en serie. Después, los cabezales Ultra para postes y globos cautivos.</p></div>
       <div><span class="q">Datos de campo</span><h3>Grabaciones y vuelos reales</h3><p>Biblioteca de sonidos de drones e interferentes para entrenar y evaluar el clasificador con datos reservados.</p></div>
       <div><span class="q">Red en terreno</span><h3>De diez a cincuenta nodos</h3><p>Primera red de campo con mapa 2D en vivo y patrulla en movimiento, y escalado a perímetros de cincuenta nodos.</p></div>
       <div><span class="q">Producto</span><h3>Interfaz para el operador</h3><p>Mapa con estados claros para el operador y diagnóstico completo para el ingeniero.</p></div>
@@ -1089,7 +1164,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
 
   /* ---------- Portada: ondas que llegan a los nodos ---------- */
   const hc = document.getElementById('heroCanvas'); const hx = hc.getContext('2d');
-  const hNodes = [[.22, .3], [.78, .26], [.84, .66], [.5, .86], [.16, .7], [.52, .5]];
+  const hNodes = [[.22, .3], [.78, .26], [.84, .66], [.5, .86], [.16, .7], [.52, .5, 'Ultra16']];
   let hSrc = [.62, .38];
   function hero(t) {
     if (!reduce && !isVis(hc)) { requestAnimationFrame(hero); return; }
@@ -1114,14 +1189,15 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     for (let k = 0; k < 4; k++) { const age = ((s + k * period / 4) % period), rr = age * speed; rings.push(rr); hx.strokeStyle = alpha(C.accent, Math.max(0, .5 - age / period * .5)); hx.lineWidth = 1.4; hx.beginPath(); hx.arc(sx, sy, rr, 0, 7); hx.stroke(); }
     // nodos: rumbo, ping al llegar el frente de onda
     let heard = 0;
-    hNodes.forEach(([nx, ny], i) => {
+    hNodes.forEach(([nx, ny, ultra], i) => {
       const x = nx * W, y = ny * H, d = Math.hypot(x - sx, y - sy), hears = d * M < 380;
-      if (hears) { heard++; const b = Math.atan2(sy - y, sx - x) + Math.sin(s * 3 + i) * .015; hx.strokeStyle = alpha(C.node, .38); hx.lineWidth = 1; hx.beginPath(); hx.moveTo(x, y); hx.lineTo(x + Math.cos(b) * W, y + Math.sin(b) * W); hx.stroke(); }
-      const ping = rings.some(rr => Math.abs(rr - d) < 7);
-      if (ping && hears) { hx.strokeStyle = alpha(C.accent, .8); hx.lineWidth = 1.5; hx.beginPath(); hx.arc(x, y, 11, 0, 7); hx.stroke(); }
-      hx.fillStyle = C.surface; hx.strokeStyle = hears ? C.node : C.muted; hx.lineWidth = 1.6; hx.beginPath(); hx.arc(x, y, 5, 0, 7); hx.fill(); hx.stroke();
-      hx.fillStyle = hears ? C.node : C.muted; hx.beginPath(); hx.arc(x, y, 2, 0, 7); hx.fill();
-      hx.fillStyle = C.muted; hx.font = '9px "IBM Plex Mono", monospace'; hx.fillText(`N${String(i).padStart(2, '0')}`, x + 8, y + 12);
+      if (hears) { heard++; const b = Math.atan2(sy - y, sx - x) + Math.sin(s * 3 + i) * (ultra ? .009 : .015); hx.strokeStyle = alpha(C.node, ultra ? .55 : .38); hx.lineWidth = ultra ? 1.4 : 1; hx.beginPath(); hx.moveTo(x, y); hx.lineTo(x + Math.cos(b) * W, y + Math.sin(b) * W); hx.stroke(); }
+      const ping = rings.some(rr => Math.abs(rr - d) < 7), rN = ultra ? 7 : 5;
+      if (ping && hears) { hx.strokeStyle = alpha(C.accent, .8); hx.lineWidth = 1.5; hx.beginPath(); hx.arc(x, y, ultra ? 16 : 11, 0, 7); hx.stroke(); }
+      if (ultra) { hx.strokeStyle = alpha(hears ? C.node : C.muted, .9); hx.lineWidth = 1.2; hx.beginPath(); hx.arc(x, y, 11, 0, 7); hx.stroke(); for (let k = 0; k < 8; k++) { const a = k * Math.PI / 4 + s * .25; hx.fillStyle = hears ? C.node : C.muted; hx.beginPath(); hx.arc(x + Math.cos(a) * 11, y + Math.sin(a) * 11, 1.4, 0, 7); hx.fill(); } }
+      hx.fillStyle = C.surface; hx.strokeStyle = hears ? C.node : C.muted; hx.lineWidth = 1.6; hx.beginPath(); hx.arc(x, y, rN, 0, 7); hx.fill(); hx.stroke();
+      hx.fillStyle = hears ? C.node : C.muted; hx.beginPath(); hx.arc(x, y, ultra ? 2.8 : 2, 0, 7); hx.fill();
+      hx.fillStyle = C.muted; hx.font = '9px "IBM Plex Mono", monospace'; hx.fillText(ultra ? `N${String(i).padStart(2, '0')} · ${ultra}` : `N${String(i).padStart(2, '0')}`, x + (ultra ? 14 : 8), y + (ultra ? 16 : 12));
     });
     // región estimada y ficha de contacto
     const ex = sx + Math.sin(s * 2.1) * 3, ey = sy + Math.cos(s * 1.7) * 3;
@@ -1155,8 +1231,8 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
   /* ---------- Cadena: cinco pasos ---------- */
   const steps = [
     { k: '01', t: 'Sonido', s: 'Motores y hélices', body: 'Cada dron produce un patrón acústico propio de sus motores y hélices. El sonido viaja a unos 343 m/s, así que llega a cada nodo con un retraso distinto según la distancia.', li: ['La posición calculada corresponde al momento en que se emitió el sonido, no al actual.', 'El mapa separa esa posición histórica de la predicción del estado presente.'], spec: [['Velocidad del sonido', '≈ 343 m/s'], ['Retraso a 300 m', '≈ 0,9 s'], ['Altitud del dron', 'no se supone']] },
-    { k: '02', t: 'Nodo', s: 'Escucha y procesa en el lugar', body: 'Un arreglo de micrófonos en posiciones conocidas capta el sonido continuamente. El nodo evalúa calidad, estima la dirección de llegada y registra la posición y orientación que tenía en ese instante.', li: ['Escucha basal permanente en todos los nodos.', 'Funciona vertical, inclinado, invertido o en movimiento.', 'Guarda audio localmente para análisis selectivo.'], spec: [['Perfil de laboratorio', '4 canales · 48 kHz'], ['Firmware', 'C11, probado en host'], ['Componentes', 'arquitectura abierta']] },
-    { k: '03', t: 'Enlace', s: 'Observaciones compactas', body: 'El nodo envía observaciones procesadas, su estado y su pose a la unidad central de comunicación. No transmite audio continuo de todos los micrófonos.', li: ['Mensajes autenticados con credenciales de cada nodo.', 'Altas, reinicios y reconexiones automáticas.', 'Redes vecinas aisladas aunque compartan radio.'], spec: [['Radio', 'LoRa, FSK o IP'], ['Autenticación lab', 'HMAC-SHA256'], ['Topología', 'nodo ↔ central']] },
+    { k: '02', t: 'Nodo', s: 'Escucha y procesa en el lugar', body: 'Un arreglo de ocho micrófonos en posiciones conocidas, o de hasta 32 en los super nodos, capta el sonido continuamente. El nodo evalúa calidad, estima la dirección de llegada y registra la posición y orientación que tenía en ese instante.', li: ['Escucha basal permanente en todos los nodos.', 'Funciona vertical, inclinado, invertido o en movimiento.', 'Aparta un micrófono tapado o saturado y sigue con los demás.', 'Guarda audio localmente para análisis selectivo.'], spec: [['Perfil por defecto', 'Standard8 · 48 kHz'], ['Super nodos', 'Ultra 12 · 16 · 24 · 32'], ['Firmware', 'C11, probado en host'], ['Componentes', 'arquitectura abierta']] },
+    { k: '03', t: 'Enlace', s: 'Observaciones compactas', body: 'El nodo envía observaciones procesadas, su estado y su pose por radio LoRa hacia la central. No transmite audio continuo de los micrófonos, así que un super nodo de 32 canales usa el mismo enlace que uno de ocho.', li: ['Mensajes autenticados con credenciales de cada nodo.', 'Altas, reinicios y reconexiones automáticas.', 'Redes vecinas aisladas aunque compartan radio.'], spec: [['Radio', 'LoRa · SX1262'], ['Recepción', 'gateway multicanal'], ['Autenticación lab', 'HMAC-SHA256'], ['Topología', 'nodo ↔ gateway ↔ central']] },
     { k: '04', t: 'Central', s: 'Fusión con pose y tiempo', body: 'El computador central admite solo observaciones con tiempo y pose válidos, comprueba que provengan de la misma fuente, combina direcciones y calcula la posición horizontal con su incertidumbre.', li: ['Coordina la escucha cooperativa entre nodos.', 'Excluye observaciones incoherentes y las reincorpora cuando mejoran.', 'Clase y dirección deben pertenecer a la misma fuente.'], spec: [['Salida', 'XY · altitud desconocida'], ['Geometría pobre', 'abstención'], ['Contribuciones', 'ponderadas por calidad']] },
     { k: '05', t: 'Mapa', s: 'Estados claros', body: 'El operador ve un mapa 2D con nodos y fuentes. Distingue actividad acústica, dron probable, fuente localizada y trayectoria mantenida, junto con la región de incertidumbre y la edad de cada dato.', li: ['Estado de cada nodo de un vistazo.', 'Diagnóstico, registros e historial para ingeniería.', 'Degradación visible cuando falta evidencia.'], spec: [['Tiempo real', 'medido de captura a mapa'], ['Estados de nodo', 'disponible · moviéndose · excluido'], ['Interfaz', 'mapa 2D con estados']] },
   ];
@@ -1175,12 +1251,12 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     const X = [70, 255, 440, 625, 810], Y = 92;
     const ico = [
       '<circle class="ps-dot" r="3.5" cx="-10"/><path class="ps-ico" d="M-2,-9 a12,12 0 0 1 0,18 M5,-15 a19,19 0 0 1 0,30 M12,-21 a26,26 0 0 1 0,42"/>',
-      '<path class="ps-ico" d="M-15,11 L0,-15 L15,11 Z"/><circle class="ps-acc" cx="-15" cy="11" r="3.2"/><circle class="ps-acc" cx="15" cy="11" r="3.2"/><circle class="ps-acc" cx="0" cy="-15" r="3.2"/><circle class="ps-acc" cx="0" cy="3" r="3.2"/>',
+      '<path class="ps-ico" d="M-15,-5 H5 V15 H-15 Z M-5,-15 H15 V5 M-15,-5 L-5,-15 M5,-5 L15,-15 M5,15 L15,5"/><path class="ps-grid" d="M-5,-15 V5 H15 M-15,15 L-5,5"/><circle class="ps-acc" cx="-15" cy="-5" r="2.7"/><circle class="ps-acc" cx="5" cy="-5" r="2.7"/><circle class="ps-acc" cx="5" cy="15" r="2.7"/><circle class="ps-acc" cx="-15" cy="15" r="2.7"/><circle class="ps-acc" cx="-5" cy="-15" r="2.7"/><circle class="ps-acc" cx="15" cy="-15" r="2.7"/><circle class="ps-acc" cx="15" cy="5" r="2.7"/><circle class="ps-dot" cx="-5" cy="5" r="2.4"/>',
       '<path class="ps-ico" d="M0,16 V-8 M-6,16 H6 M-9,-14 a12,12 0 0 0 0,14 M9,-14 a12,12 0 0 1 0,14 M-15,-19 a19,19 0 0 0 0,24 M15,-19 a19,19 0 0 1 0,24"/><circle class="ps-dot" cy="-8" r="3"/>',
       '<rect class="ps-ico" x="-15" y="-17" width="30" height="9" rx="1.5"/><rect class="ps-ico" x="-15" y="-4" width="30" height="9" rx="1.5"/><rect class="ps-ico" x="-15" y="9" width="30" height="9" rx="1.5"/><circle class="ps-acc" cx="9" cy="-12.5" r="1.8"/><circle class="ps-acc" cx="9" cy=".5" r="1.8"/><circle class="ps-dot" cx="9" cy="13.5" r="1.8"/>',
       '<rect class="ps-ico" x="-16" y="-16" width="32" height="32" rx="1.5"/><path class="ps-grid" d="M-16,-5 H16 M-16,6 H16 M-5,-16 V16 M6,-16 V16"/><ellipse class="ps-ell" cx="3" cy="-2" rx="8" ry="5" transform="rotate(-25 3 -2)"/><circle class="ps-acc" cx="3" cy="-2" r="2.4"/>',
     ];
-    const names = ['Sonido', 'Nodo', 'Enlace', 'Central', 'Mapa'], subs = ['motores y hélices', 'dirección local + pose', 'radio autenticada', 'fusión y pista', 'estado para el mando'];
+    const names = ['Sonido', 'Nodo', 'Enlace', 'Central', 'Mapa'], subs = ['motores y hélices', '8 a 32 micrófonos + pose', 'LoRa autenticada', 'fusión y pista', 'estado para el mando'];
     const links = [['onda', 'acústica'], ['observación', '+ pose'], ['mensaje', 'firmado'], ['posición', '+ región']];
     let h = '<svg id="pipeSvg" viewBox="0 0 880 252" role="img" aria-label="Diagrama de la cadena de BatGuard: sonido, nodo, enlace, central y mapa">';
     h += '<defs><marker id="psArr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 Z" class="ps-arrh"/></marker></defs>';
@@ -1223,6 +1299,9 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
   const log = (msg) => { const tt = simT.toFixed(1).padStart(5, ' '); logs.unshift(`<div><b>t+${tt}s</b> ${msg}</div>`); logs.length = Math.min(logs.length, 8); logEl.innerHTML = logs.join(''); };
   const font = px => `${(px * FS).toFixed(1)}px "IBM Plex Mono", monospace`;
 
+  // Red mixta: uno de cada nueve nodos es un super nodo Ultra16 en poste (desde seis nodos); el paso 9 los reparte alrededor de la espiral
+  const ULTRA_SD = .72, ultraOn = () => { const c = document.getElementById('tUltra'); return !c || c.checked; };
+  const isUltra = (i, n) => ultraOn() && n >= 6 && i % 9 === 4;
   function genPos(n, md) {
     const rnd = mulberry(7 + n + md.length * 31), out = [];
     for (let i = 0; i < n; i++) {
@@ -1230,7 +1309,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
       if (md === 'linea') { x = 90 + (820 * (i + .5)) / n + (rnd() - .5) * 14; y = 330 + (rnd() - .5) * 26; }
       else if (md === 'agrupado') { const r = 95 * Math.sqrt((i + .5) / n), a = i * 2.39996; x = 270 + r * Math.cos(a) * 1.2 + (rnd() - .5) * 16; y = 330 + r * Math.sin(a) + (rnd() - .5) * 16; }
       else { const R = Math.min(330, 110 + 34 * Math.sqrt(n)), r = R * Math.sqrt((i + .5) / n), a = i * 2.39996 + .6; x = 500 + r * Math.cos(a) * 1.35 + (rnd() - .5) * 30; y = 320 + r * Math.sin(a) * .95 + (rnd() - .5) * 30; }
-      out.push({ x, y, h: rnd() * Math.PI * 2 });
+      out.push({ x, y, h: rnd() * Math.PI * 2, u: isUltra(i, n) });
     }
     return out;
   }
@@ -1242,14 +1321,14 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
       else if (mode === 'agrupado') { const r = 95 * Math.sqrt((i + .5) / n), a = i * 2.39996; x = 270 + r * Math.cos(a) * 1.2 + (rnd() - .5) * 16; y = 330 + r * Math.sin(a) + (rnd() - .5) * 16; }
       else { const R = Math.min(330, 110 + 34 * Math.sqrt(n)), r = R * Math.sqrt((i + .5) / n), a = i * 2.39996 + .6; x = 500 + r * Math.cos(a) * 1.35 + (rnd() - .5) * 30; y = 320 + r * Math.sin(a) * .95 + (rnd() - .5) * 30; }
       const h = rnd() * Math.PI * 2, prev = old[i];
-      nodes.push({ id: 'N' + String(i).padStart(2, '0'), ax: x, ay: y, x, y, h, hk: h, offline: prev ? prev.offline : 0, state: 'escucha', coop: false });
+      nodes.push({ id: 'N' + String(i).padStart(2, '0'), ax: x, ay: y, x, y, h, hk: h, offline: prev ? prev.offline : 0, state: 'escucha', coop: false, u: isUltra(i, n) });
     }
     covAt = -9;
   }
   layout(50);
-  log('Red de <b>50</b> nodos emparejados disponible');
+  log(`Red mixta de <b>50</b> nodos emparejados: ${nodes.filter(n => !n.u).length} Standard8 y <b>${nodes.filter(n => n.u).length}</b> super nodos Ultra16`);
 
-  const ui = { n: document.getElementById('nNodes'), nl: document.getElementById('nLabel'), move: document.getElementById('tMove'), pose: document.getElementById('tPose'), noise: document.getElementById('tNoise'), cov: document.getElementById('tCov'), gen: document.getElementById('tGen') };
+  const ui = { n: document.getElementById('nNodes'), nl: document.getElementById('nLabel'), move: document.getElementById('tMove'), pose: document.getElementById('tPose'), noise: document.getElementById('tNoise'), cov: document.getElementById('tCov'), gen: document.getElementById('tGen'), ultra: document.getElementById('tUltra') };
   const setN = n => { ui.n.value = n; ui.nl.textContent = n; layout(n); track = []; streak = 0; document.querySelectorAll('#presets .chipbtn').forEach(b => b.classList.toggle('on', +b.dataset.n === n)); { const pv = precInterp(n); log(`Red de <b>${n}</b> nodos: región típica ≈ <b>${pv && pv.m ? Math.round(pv.m) + ' m' : 'sin posición'}</b>`); } };
   ui.n.addEventListener('input', () => setN(+ui.n.value));
   document.querySelectorAll('#presets .chipbtn').forEach(b => b.onclick = () => setN(+b.dataset.n));
@@ -1259,6 +1338,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
   ui.move.onchange = () => log(ui.move.checked ? '<b>N00</b> en movimiento; sigue aportando con la pose de cada captura' : '<b>N00</b> en reposo');
   ui.noise.onchange = () => { covAt = -9; buildPrec(); log(ui.noise.checked ? 'Viento y ruido: menos alcance y direcciones más dispersas' : 'Condiciones acústicas normales'); };
   ui.cov.onchange = () => { covAt = -9; document.getElementById('covLegend').hidden = !ui.cov.checked; };
+  ui.ultra.onchange = () => { nodes.forEach((nd, i) => { nd.u = isUltra(i, nodes.length); }); covAt = -9; buildPrec(); document.getElementById('ultraLegend').hidden = !ui.ultra.checked; const k = nodes.filter(nd => nd.u).length; log(ui.ultra.checked ? (k ? `<b>${k}</b> super nodos Ultra16 en postes; la central pesa cada observación por su calidad` : 'Con menos de seis nodos la red sigue siendo solo Standard8') : 'Red solo con nodos Standard8'); };
   ui.gen.onchange = () => log(ui.gen.checked ? 'Generador encendido al suroeste: otra fuente acústica en la escena' : 'Generador apagado');
   document.getElementById('bRotate').onclick = () => { nodes.forEach(n => { n.h += (Math.random() - .5) * 3; if (ui.pose.checked) n.hk = n.h; }); log(ui.pose.checked ? 'Todos los nodos girados; <b>pose compensada sin reconfigurar</b>' : 'Nodos girados <b>sin compensación</b>: direcciones erróneas en el mapa'); };
   document.getElementById('bResume').onclick = () => { auto = true; log('Vuelo automático reanudado'); };
@@ -1284,11 +1364,11 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
   const setState = (k, why) => { [...ladder.children].forEach((d, i) => { d.classList.toggle('on', i === k); d.classList.toggle('past', i < k); }); document.getElementById('why').textContent = why; if (k !== lastState) { if (k < lastState && lastState >= 3) log(`Salida degradada a <b>${STATES[k].toLowerCase()}</b>`); lastState = k; } };
 
   let rays = [], otherRays = [], ellipse = null, dirOnly = null;
-  const sdFor = (d, range, noise) => (1.2 + 5 * (d / range)) * (noise ? 2.2 : 1) * Math.PI / 180;
+  const sdFor = (d, range, noise, u) => (1.2 + 5 * (d / range)) * (noise ? 2.2 : 1) * (u ? ULTRA_SD : 1) * Math.PI / 180;
 
   function coverageAt(x, y, range, noise) {
     let a11 = 0, a12 = 0, a22 = 0, cnt = 0;
-    for (const n of nodes) { if (n.offline) continue; const dx = x - n.x, dy = y - n.y, r = Math.hypot(dx, dy); if (r > range * .78 || r < 1) continue; cnt++; const ux = dx / r, uy = dy / r, sd = sdFor(r, range, noise), w = 1 / (sd * sd * Math.max(r, 20) ** 2); a11 += w * (1 - ux * ux); a12 -= w * ux * uy; a22 += w * (1 - uy * uy); }
+    for (const n of nodes) { if (n.offline) continue; const dx = x - n.x, dy = y - n.y, r = Math.hypot(dx, dy); if (r > range * .78 || r < 1) continue; cnt++; const ux = dx / r, uy = dy / r, sd = sdFor(r, range, noise, n.u), w = 1 / (sd * sd * Math.max(r, 20) ** 2); a11 += w * (1 - ux * ux); a12 -= w * ux * uy; a22 += w * (1 - uy * uy); }
     if (cnt < 2) return { cnt, q: cnt ? .12 : 0, major: null };
     const det = a11 * a22 - a12 * a12; if (det <= 0) return { cnt, q: .12, major: null };
     const c11 = a22 / det, c22 = a11 / det, c12 = -a12 / det, t = c11 + c22, l1 = t / 2 + Math.sqrt(Math.max(0, t * t / 4 - (c11 * c22 - c12 * c12)));
@@ -1317,7 +1397,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
       const d = Math.hypot(src.x - n.x, src.y - n.y);
       if (genOn) { const dg = Math.hypot(GEN.x - n.x, GEN.y - n.y); if (dg < 240 && dg < d * .75) { n.state = 'otra'; otherRays.push({ n, b: Math.atan2(GEN.y - n.y, GEN.x - n.x) + n.hk - n.h + gauss() * .02 }); return; } }
       if (d > range) return;
-      const snr = 1 - d / range, sd = sdFor(d, range, noise);
+      const snr = 1 - d / range, sd = sdFor(d, range, noise, n.u);
       cand.push({ n, d, src, snr, sd, strong: snr > .22 });
       if (snr > .22) anyDetect = true;
     });
@@ -1526,15 +1606,17 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
       if (active) { g.fillStyle = alpha(C.node, .14); g.beginPath(); g.arc(n.x, n.y, 15 * sz, 0, 7); g.fill(); }
       if (n.ping && simT - n.ping < .5 && !n.offline) { const u = (simT - n.ping) / .5; g.strokeStyle = alpha(C.accent, .9 * (1 - u)); g.lineWidth = 1.8; g.beginPath(); g.arc(n.x, n.y, (10 + 18 * u) * sz, 0, 7); g.stroke(); }
       g.save(); g.translate(n.x, n.y); g.rotate(n.h); g.scale(sz, sz);
+      if (n.u) { g.strokeStyle = alpha(col, .9); g.lineWidth = 1.3; g.beginPath(); g.arc(0, 0, 14, 0, 7); g.stroke(); g.fillStyle = col; for (let k = 0; k < 8; k++) { const an = k * Math.PI / 4 + Math.PI / 8; g.beginPath(); g.arc(Math.cos(an) * 14, Math.sin(an) * 14, 1.5, 0, 7); g.fill(); } }
       g.fillStyle = n.offline ? C.field : col; g.strokeStyle = col; g.lineWidth = 1.6;
       g.beginPath(); g.moveTo(10, 0); g.lineTo(-6, -6.5); g.lineTo(-6, 6.5); g.closePath(); g.fill(); g.stroke();
       if (n.offline) { g.strokeStyle = C.muted; g.beginPath(); g.moveTo(-8, -8); g.lineTo(10, 8); g.stroke(); }
       g.restore();
       if (n.coop) { g.strokeStyle = alpha(C.warn, .9); g.setLineDash([2, 3]); g.lineWidth = 1.2; g.beginPath(); g.arc(n.x, n.y, 19 * sz, 0, 7); g.stroke(); g.setLineDash([]); }
-      if (nodes.length <= 30 || n.offline || n.state === 'excluido' || n === nodes[0]) {
+      if (nodes.length <= 30 || n.offline || n.state === 'excluido' || n === nodes[0] || n.u) {
         g.fillStyle = n.offline ? C.muted : C.ink; g.font = font(11);
-        const lab = n.offline ? `${n.id} desconectado` : n.state === 'excluido' ? `${n.id} excluido` : n.state === 'otra' ? `${n.id} · otra fuente` : (n === nodes[0] && ui.move.checked) ? `${n.id} en movimiento` : n.id;
-        g.fillText(lab, n.x + 12, n.y - 10);
+        let lab = n.offline ? `${n.id} desconectado` : n.state === 'excluido' ? `${n.id} excluido` : n.state === 'otra' ? `${n.id} · otra fuente` : (n === nodes[0] && ui.move.checked) ? `${n.id} en movimiento` : n.id;
+        if (n.u && lab === n.id) lab = nodes.length <= 30 ? `${n.id} · Ultra16` : 'Ultra16';
+        g.fillText(lab, n.x + (n.u ? 17 : 12) * sz, n.y - (n.u ? 14 : 10) * sz);
       }
     });
 
@@ -1567,7 +1649,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
   let precCurve = [], precHover = null;
   function expRegion(pts, x, y, range, noise) {
     let a11 = 0, a12 = 0, a22 = 0, cnt = 0;
-    for (const p of pts) { const dx = x - p.x, dy = y - p.y, r = Math.hypot(dx, dy); if (r > range * .78 || r < 1) continue; cnt++; const ux = dx / r, uy = dy / r, sd = sdFor(r, range, noise), w = 1 / (sd * sd * Math.max(r, 20) ** 2); a11 += w * (1 - ux * ux); a12 -= w * ux * uy; a22 += w * (1 - uy * uy); }
+    for (const p of pts) { const dx = x - p.x, dy = y - p.y, r = Math.hypot(dx, dy); if (r > range * .78 || r < 1) continue; cnt++; const ux = dx / r, uy = dy / r, sd = sdFor(r, range, noise, p.u), w = 1 / (sd * sd * Math.max(r, 20) ** 2); a11 += w * (1 - ux * ux); a12 -= w * ux * uy; a22 += w * (1 - uy * uy); }
     if (cnt < 2) return null; const det = a11 * a22 - a12 * a12; if (det <= 0) return null;
     const c11 = a22 / det, c22 = a11 / det, c12 = -a12 / det, t = c11 + c22, l1 = t / 2 + Math.sqrt(Math.max(0, t * t / 4 - (c11 * c22 - c12 * c12)));
     return 2 * 2.45 * Math.sqrt(l1);
@@ -1758,11 +1840,11 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
 
   /* ---------- Nodo despiezado ---------- */
   const layers = [
-    ['Cabezal de micrófonos', 'Arreglo MEMS en posiciones relativas conocidas, con protección de viento removible. Perfil de laboratorio: 4 canales, 48 kHz.', 'Arquitectura abierta a Infineon IM73D122 e IM72D128V, placa PUI DMM-4026 y referencia analógica Primo EM272Z1. El cabezal se elige por desempeño medido.', 'mic'],
-    ['Procesamiento', 'Captura continua, calidad de señal, dirección de llegada local y candidatos por fuente.', 'ESP32-S3 como nodo económico y Teensy 4.1 como referencia de grabación. Firmware C11 de captura probado en host.', 'cpu'],
-    ['Posición y orientación', 'IMU para la orientación y GNSS u otra vía para la posición, ligadas al instante de cada captura.', 'Orientación desde giroscopio implementada en firmware C y probada. GNSS o UWB según el terreno.', 'imu'],
-    ['Radio', 'Observaciones, estado, pose y solicitudes cooperativas hacia la unidad central.', 'LoRa, FSK o IP según el despliegue, con SX1262 como referencia.', 'radio'],
-    ['Energía', 'Batería y gestión de carga para cada tipo de montaje.', 'Energía dimensionada para cada montaje y misión.', 'bat'],
+    ['Cabezal de micrófonos', 'Ocho micrófonos MEMS iguales, captados a la vez, en un cabezal 3D no coplanar con protección de viento removible. Perfil Standard8 a 48 kHz; los super nodos Ultra llevan de 12 a 32.', 'Candidato principal Infineon IM73D122, con IM72D128V, placas PUI y la referencia analógica Primo EM272Z1 como comparadores. Dos tetraedros intercalados de unos 14 cm entre puertos extremos.', 'mic'],
+    ['Procesamiento', 'Captura continua de los ocho canales, calidad de señal, dirección de llegada local y candidatos por fuente.', 'Ruta económica: ESP32-S3 con cuatro líneas PDM. Referencia: frontend TLV320ADC6140 hacia Teensy 4.1. Super nodos: adquisición dedicada xcore.ai o frontends sincronizados. Firmware C11 v2 probado en host.', 'cpu'],
+    ['Posición y orientación', 'IMU para la orientación y GNSS u otra vía para la posición, ligadas al instante de cada captura.', 'Orientación desde giroscopio implementada en firmware C y probada; trayectoria de pose ligada a cada ventana, también en movimiento. GNSS o UWB según el terreno.', 'imu'],
+    ['Radio', 'Observaciones, estado, pose y solicitudes cooperativas hacia la central.', 'LoRa como enlace principal: módulo SX1262 en el nodo y gateway multicanal SX1302/SX1303 en la central. Resumen de 80 bytes, el mismo para los cinco perfiles.', 'radio'],
+    ['Energía', 'Batería y gestión de carga para cada tipo de montaje.', 'Energía dimensionada para cada montaje y misión; en poste, alimentación por cable donde el sitio la ofrece.', 'bat'],
     ['Carcasa y montaje', 'Protección de agua y viento, drenaje, aislamiento de vibración y fijación a poste, imán o suelo, o portado por una persona.', 'Siete montajes en el diseño: poste, árbol, suelo, imán, portado, globo y lanzado.', 'case'],
   ];
   const svg = document.getElementById('explodeSvg'), NS = 'http://www.w3.org/2000/svg';
@@ -1773,7 +1855,13 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     el('path', { class: 'slab', d: `M${150 - rx},${y} v${h} a${rx},${ry} 0 0 0 ${2 * rx},0 v${-h} Z` }, grp);
     el('ellipse', { class: 'top', cx: 150, cy: y, rx, ry }, grp);
     const kind = layers[i][3];
-    if (kind === 'mic') { [[-60, 0], [60, 0], [0, -18], [0, 18]].forEach(([dx, dy]) => { el('circle', { class: 'acc', cx: 150 + dx, cy: y + dy, r: 5 }, grp); }); el('path', { class: 'det-s', d: `M${150 - 80},${y - 4} Q150,${y - 50} ${150 + 80},${y - 4}`, 'stroke-dasharray': '4 4' }, grp); }
+    if (kind === 'mic') {
+      el('path', { class: 'det-s', d: `M${150 - 80},${y - 4} Q150,${y - 50} ${150 + 80},${y - 4}`, 'stroke-dasharray': '4 4' }, grp);
+      const cube = [[-34, -4], [22, -4], [22, 12], [-34, 12]].map(([cx, cy]) => [150 + cx, y + cy]), off = [12, -20];
+      const back = cube.map(([cx, cy]) => [cx + off[0], cy + off[1]]);
+      el('path', { class: 'det-s', d: `M${cube.map(p => p.join(',')).join(' L')} Z M${back.map(p => p.join(',')).join(' L')} Z ${cube.map((p, k) => `M${p.join(',')} L${back[k].join(',')}`).join(' ')}` }, grp);
+      [...back, ...cube].forEach(([cx, cy]) => el('circle', { class: 'acc', cx, cy, r: 4.2 }, grp));
+    }
     if (kind === 'cpu') { el('rect', { class: 'det', x: 132, y: y - 9, width: 36, height: 18, rx: 2, }, grp); for (let k = 0; k < 5; k++) el('line', { class: 'det-s', x1: 92 + k * 12, y1: y + 2, x2: 100 + k * 12, y2: y + 12 }, grp); }
     if (kind === 'imu') { el('rect', { class: 'det', x: 112, y: y - 6, width: 18, height: 12, rx: 2 }, grp); el('circle', { class: 'det-s', cx: 188, cy: y, r: 10 }, grp); el('circle', { class: 'det', cx: 188, cy: y, r: 3 }, grp); }
     if (kind === 'radio') { el('line', { class: 'det-s', x1: 220, y1: y - 2, x2: 236, y2: y - 46, 'stroke-width': 2.4 }, grp); el('circle', { class: 'acc', cx: 236, cy: y - 46, r: 3.5 }, grp); el('rect', { class: 'det', x: 132, y: y - 6, width: 30, height: 12, rx: 2 }, grp); }
@@ -1797,7 +1885,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     host.prepend(renderer.domElement);
     const scene = new THREE.Scene();
     const cam = new THREE.PerspectiveCamera(30, 1, .1, 100);
-    cam.position.set(6.2, 4.6, 7.6); cam.lookAt(0, 1.7, 0);
+    cam.position.set(6.9, 5.3, 8.5); cam.lookAt(0, 2.05, 0);
     scene.add(new THREE.HemisphereLight(0xffffff, 0x777777, 1.15));
     const dl = new THREE.DirectionalLight(0xffffff, 1.2); dl.position.set(3, 7, 5); scene.add(dl);
     const root = new THREE.Group(); scene.add(root);
@@ -1835,12 +1923,15 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     mk(disc(1.05, .06), 'pcb', L[1], [0, .03, 0]);
     mk(new THREE.BoxGeometry(.56, .1, .56), 'dark', L[1], [0, .11, 0]);
     for (let k = 0; k < 3; k++) mk(new THREE.BoxGeometry(.16, .06, .3), 'body', L[1], [-.65 + k * .22, .09, .5]);
-    // 0 cabezal: tetraedro de micrófonos no coplanar
+    // 0 cabezal Standard8: ocho micrófonos en los vértices de un cubo (dos tetraedros intercalados)
     mk(disc(1.15, .12), 'body', L[0], [0, .06, 0]);
     mk(new THREE.CylinderGeometry(.035, .035, .78, 10), 'dark', L[0], [0, .5, 0]);
-    const mics = [], micMats = [];
-    const micPos = [[.85 * Math.cos(Math.PI / 2), .17, .85 * Math.sin(Math.PI / 2)], [.85 * Math.cos(7 * Math.PI / 6), .17, .85 * Math.sin(7 * Math.PI / 6)], [.85 * Math.cos(11 * Math.PI / 6), .17, .85 * Math.sin(11 * Math.PI / 6)], [0, .92, 0]];
-    micPos.forEach(p => { const m = new THREE.MeshLambertMaterial({ color: 0xffffff }); m.userData.role = 'mic'; mats.push(m); micMats.push(m); const s = new THREE.Mesh(new THREE.SphereGeometry(.1, 20, 12), m); s.position.set(...p); L[0].add(s); mics.push(s); });
+    const mics = [], micMats = [], CA = .42, CY = .62;
+    const micPos = [[1, 1, 1], [1, -1, -1], [-1, 1, -1], [-1, -1, 1], [-1, -1, -1], [-1, 1, 1], [1, -1, 1], [1, 1, -1]].map(([x, y, z]) => [x * CA, CY + y * CA, z * CA]);
+    const frameMat = new THREE.LineBasicMaterial({ color: 0x888888, transparent: true, opacity: .55 }); edgeMats.push(frameMat);
+    { const fr = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(CA * 2, CA * 2, CA * 2)), frameMat); fr.position.y = CY; L[0].add(fr); }
+    { const tet = new THREE.BufferGeometry().setFromPoints([[0, 1], [0, 2], [0, 3], [1, 2], [1, 3], [2, 3]].flatMap(([a, b]) => [new THREE.Vector3(...micPos[a]), new THREE.Vector3(...micPos[b])])); const tm = new THREE.LineBasicMaterial({ color: 0xffaa00, transparent: true, opacity: .35 }); tm.userData.role = 'tet'; L[0].add(new THREE.LineSegments(tet, tm)); window.__tetMat = tm; }
+    micPos.forEach(p => { const m = new THREE.MeshLambertMaterial({ color: 0xffffff }); m.userData.role = 'mic'; mats.push(m); micMats.push(m); const s = new THREE.Mesh(new THREE.SphereGeometry(.085, 20, 12), m); s.position.set(...p); L[0].add(s); mics.push(s); });
     const domeMat = new THREE.LineBasicMaterial({ color: 0x888888, transparent: true, opacity: .28 });
     const dome = new THREE.LineSegments(new THREE.WireframeGeometry(new THREE.SphereGeometry(1.18, 18, 7, 0, Math.PI * 2, 0, Math.PI / 2)), domeMat); dome.position.y = .12; L[0].add(dome);
     // frente de onda
@@ -1860,7 +1951,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     function applyColors() {
       const ink = col(C.ink), surf = col(C.surface), node = col(C.node), acc = col(C.accent);
       mats.forEach(m => { const r = m.userData.role; m.color.copy(r === 'body' ? surf : r === 'pcb' ? surf.clone().lerp(node, .38) : r === 'acc' ? acc : r === 'mic' ? ink.clone().lerp(surf, .1) : ink.clone().lerp(surf, .35)); });
-      edgeMats.forEach(m => m.color.copy(ink)); domeMat.color.copy(ink); waveMat.color.copy(acc); waveEdgeMat.color.copy(acc); north.setColor(col(C.muted)); outArrow.setColor(col(C.accent));
+      edgeMats.forEach(m => m.color.copy(ink)); domeMat.color.copy(ink); waveMat.color.copy(acc); waveEdgeMat.color.copy(acc); north.setColor(col(C.muted)); outArrow.setColor(col(C.accent)); if (window.__tetMat) window.__tetMat.color.copy(acc);
     }
     applyColors(); (window.__th = window.__th || []).push(applyColors);
 
@@ -1885,7 +1976,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     window.__n3sel = i => { sel = i; labelEls.forEach((b, j) => b.classList.toggle('on', i === j)); };
     window.__n3sel(0);
 
-    const passT = [-9, -9, -9, -9], v = new THREE.Vector3(); let t3 = 0, last = 0, prevS = 9;
+    const passT = mics.map(() => -9), v = new THREE.Vector3(); let t3 = 0, last = 0, prevS = 9;
     function resize() { const w = host.clientWidth, h = Math.round(w * .82); if (renderer.domElement.width !== Math.round(w * renderer.getPixelRatio())) { renderer.setSize(w, h, false); renderer.domElement.style.width = '100%'; renderer.domElement.style.height = h + 'px'; cam.aspect = w / h; cam.updateProjectionMatrix(); } }
     watchVis(host);
     function loop(now) {
@@ -1932,12 +2023,12 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     const slope = x => Math.atan((groundY(x + 2) - groundY(x - 2)) / 4);
     const M = {
       patrulla: { t: 'Patrulla a pie', badge: ['ok', 'Aporta en movimiento'], how: 'El nodo va en la mochila, el hombro o el casco. Sigue escuchando y aportando mientras la persona camina, sin que tenga que detenerse ni tocar nada.', adapt: 'GNSS e IMU actualizan la pose en cada ventana de captura. Cada observación sale con la posición y orientación exactas de ese instante.' },
-      poste: { t: 'Poste o mástil', badge: ['ok', 'Fijo en altura'], how: 'Abrazadera en un poste, mástil o torre. La altura despeja obstáculos y mejora la escucha del cielo.', adapt: 'Puede quedar torcido o girar con el viento sin consecuencias: la orientación medida corrige cada dirección antes de llevarla al mapa.' },
+      poste: { t: 'Poste o mástil', badge: ['ok', 'Super nodo Ultra16 · fijo en altura'], how: 'Abrazadera en un poste, mástil o torre. Admite el nodo compacto o un super nodo Ultra16, ampliable a 24 o 32 micrófonos, con energía y datos por cable si el sitio los tiene. La altura despeja obstáculos.', adapt: 'Puede quedar torcido o girar con el viento sin consecuencias: la orientación medida en el propio cabezal corrige cada dirección antes de llevarla al mapa.' },
       arbol: { t: 'Árbol', badge: ['ok', 'Fijo y camuflado'], how: 'Correa al tronco o a una rama firme. Se camufla con el entorno y no necesita infraestructura.', adapt: 'El follaje y las ramas reflejan sonido y el viento mueve el soporte. La pose sigue esos movimientos y la calidad de cada observación se informa.' },
       suelo: { t: 'Suelo', badge: ['ok', 'El despliegue más rápido'], how: 'Apoyado o semienterrado en el terreno, en cualquier pendiente. Es el despliegue más rápido.', adapt: 'La inclinación del terreno se mide sola. Cada observación lleva su calidad, para que la central pese lo que aporta cada nodo.' },
       iman: { t: 'Magnético', badge: ['ok', 'Sin herramientas'], how: 'Se pega a un vehículo, contenedor o estructura metálica, en horizontal, de lado o invertido.', adapt: 'El metal y el imán invalidan la brújula aunque marque lecturas estables. Por eso la orientación no depende del magnetómetro y el nodo queda bien orientado de lado o invertido.' },
       lanzado: { t: 'Lanzado', badge: ['ok', 'Cobertura a distancia'], how: 'Se lanza a mano hacia donde se necesita cobertura y cae en cualquier orientación, incluso boca abajo.', adapt: 'En vuelo queda excluido de la localización. Al asentarse se une a su red, calcula su pose y empieza a aportar sin que nadie lo configure.' },
-      globo: { t: 'Globo cautivo', badge: ['ok', 'Horizonte ampliado'], how: 'Cuelga de un globo atado al suelo para escuchar desde la altura, por encima del relieve y la vegetación.', adapt: 'El nodo oscila y gira sin parar. Su pose continua permite usar cada captura; cuando el balanceo es excesivo, se aparta hasta que mejora.' },
+      globo: { t: 'Globo cautivo', badge: ['ok', 'Super nodo Ultra12 · en altura'], how: 'Un super nodo Ultra12 o Ultra16, con cabezal rígido y ligero, cuelga de un globo atado al suelo para escuchar desde la altura, por encima del relieve y la vegetación.', adapt: 'El cabezal oscila y gira sin parar. Su IMU mide la pose del cabezal, no la del globo, y permite usar cada captura; cuando el balanceo es excesivo, se aparta hasta que mejora.' },
     };
     const ORDER = ['patrulla', 'poste', 'arbol', 'suelo', 'iman', 'lanzado', 'globo'];
     let sel = 'patrulla', t = 0, last = 0, FS = 1;
@@ -1956,13 +2047,26 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
       if (best) select(best);
     });
 
-    function nodeGlyph(c, x, y, a, state, s) {
+    function nodeGlyph(c, x, y, a, state, s, ultra) {
       c.save(); c.translate(x, y); c.rotate(a); c.scale(s, s);
       const stroke = state === 'off' ? C.muted : state === 'calc' ? C.warn : C.node;
       c.strokeStyle = stroke; c.fillStyle = C.surface; c.lineWidth = 1.6;
-      c.beginPath(); c.moveTo(0, -6); c.lineTo(0, -15); c.stroke();
+      if (ultra) {
+        // super nodo: cabezal esférico con más micrófonos sobre un mástil corto
+        c.beginPath(); c.moveTo(0, -7); c.lineTo(0, -14); c.stroke();
+        c.beginPath(); if (c.roundRect) c.roundRect(-12, -7, 24, 14, 3); else c.rect(-12, -7, 24, 14); c.fill(); c.stroke();
+        c.beginPath(); c.arc(0, -24, 10, 0, 7); c.fill(); c.stroke();
+        c.lineWidth = 1; c.beginPath(); c.ellipse(0, -24, 10, 3.4, 0, 0, 7); c.stroke();
+        c.fillStyle = stroke; for (let k = 0; k < 8; k++) { const an = k * Math.PI / 4; c.beginPath(); c.arc(Math.cos(an) * 10, -24 + Math.sin(an) * 10, 1.7, 0, 7); c.fill(); }
+        [[-5, -25.5], [5, -22.5], [0, -30], [0, -18]].forEach(([mx, my]) => { c.beginPath(); c.arc(mx, my, 1.5, 0, 7); c.fill(); });
+        c.restore(); return;
+      }
+      c.beginPath(); c.moveTo(0, -6); c.lineTo(0, -11); c.stroke();
       c.beginPath(); if (c.roundRect) c.roundRect(-10, -6, 20, 12, 3); else c.rect(-10, -6, 20, 12); c.fill(); c.stroke();
-      c.fillStyle = stroke; [[-6, -6], [0, -6], [6, -6], [0, -15]].forEach(([mx, my]) => { c.beginPath(); c.arc(mx, my, 2.2, 0, 7); c.fill(); });
+      // cabezal Standard8: cubo de ocho micrófonos en perspectiva
+      const f = [[-6, -19], [2, -19], [2, -11], [-6, -11]], b = f.map(([px, py]) => [px + 4, py - 4]);
+      c.lineWidth = 1.1; c.beginPath(); [f, b].forEach(q => { c.moveTo(...q[0]); q.slice(1).forEach(p => c.lineTo(...p)); c.closePath(); }); f.forEach((p, k) => { c.moveTo(...p); c.lineTo(...b[k]); }); c.stroke();
+      c.fillStyle = stroke; [...b, ...f].forEach(([mx, my]) => { c.beginPath(); c.arc(mx, my, 1.6, 0, 7); c.fill(); });
       c.restore();
     }
     function label(txt, x, y, on) { g.font = `${on ? 600 : 500} ${(11.5 * FS).toFixed(1)}px "Instrument Sans", system-ui, sans-serif`; const w = g.measureText(txt).width + 10 * FS; g.fillStyle = on ? C.accent : alpha(C.surface, .92); g.fillRect(x - w / 2, y - 15 * FS, w, 17 * FS); g.fillStyle = on ? C.surface : C.ink; g.textAlign = 'center'; g.fillText(txt, x, y - 2.5 * FS); g.textAlign = 'left'; }
@@ -1985,7 +2089,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
       const CEN = { x: 36, y: groundY(36) - 96 };
       { const gy = groundY(36); g.strokeStyle = C.muted; g.lineWidth = 3; g.beginPath(); g.moveTo(36, gy - 18); g.lineTo(36, CEN.y); g.stroke(); g.fillStyle = alpha(C.muted, .7); g.fillRect(20, gy - 20, 32, 20); g.fillStyle = C.accent; g.beginPath(); g.arc(CEN.x, CEN.y, 3.5, 0, 7); g.fill(); for (let k = 1; k <= 2; k++) { g.strokeStyle = alpha(C.accent, .5 * ((Math.sin(t * 3) + 1) / 2)); g.lineWidth = 1.2; g.beginPath(); g.arc(CEN.x, CEN.y, 6 * k + 2, -Math.PI * .8, -Math.PI * .2); g.stroke(); } }
       // poste
-      { const x = 92, gy = groundY(x); g.strokeStyle = C.muted; g.lineWidth = 5; g.beginPath(); g.moveTo(x, gy); g.lineTo(x, gy - 150); g.stroke(); g.lineWidth = 2; g.beginPath(); g.moveTo(x - 10, gy - 140); g.lineTo(x + 10, gy - 140); g.stroke(); nodesNow.push({ k: 'poste', x, y: gy - 158, a: .05 + Math.sin(t * .9) * .03, st: 'ok', tag: 'Poste' }); }
+      { const x = 92, gy = groundY(x); g.strokeStyle = C.muted; g.lineWidth = 5; g.beginPath(); g.moveTo(x, gy); g.lineTo(x, gy - 150); g.stroke(); g.lineWidth = 2; g.beginPath(); g.moveTo(x - 10, gy - 140); g.lineTo(x + 10, gy - 140); g.stroke(); nodesNow.push({ k: 'poste', x, y: gy - 158, a: .05 + Math.sin(t * .9) * .03, st: 'ok', tag: 'Poste · Ultra16', u: true }); }
       // árbol
       { const x = 215, gy = groundY(x); g.fillStyle = alpha(C.muted, .55); g.fillRect(x - 6, gy - 130, 12, 130); g.fillStyle = alpha(C.node, .16); [[0, -170, 46], [-34, -140, 34], [32, -142, 36], [-8, -120, 30]].forEach(([ox, oy, rr]) => { g.beginPath(); g.arc(x + ox + Math.sin(t + ox) * 1.5, gy + oy, rr, 0, 7); g.fill(); }); nodesNow.push({ k: 'arbol', x: x + 13, y: gy - 72, a: Math.PI / 2 - .25 + Math.sin(t * 1.3) * .04, st: 'ok', tag: 'Árbol' }); }
       // suelo
@@ -2006,7 +2110,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
       else { nodesNow.push({ k: 'lanzado', x: px - dir * 4, y: pgy - 52, a: 0, st: 'off', tag: 'Lanzado · en la mano', hidden: true }); cyclek = 5; }
       setCycle(cyclek);
       // globo
-      { const bx = 905 + Math.sin(t * .4) * 10, by = 150 + Math.sin(t * .6) * 6, gx = 905, gy = groundY(gx); g.strokeStyle = C.muted; g.lineWidth = 1; g.beginPath(); g.moveTo(gx, gy); g.quadraticCurveTo(gx - 14, (gy + by) / 2, bx, by + 30); g.stroke(); g.fillStyle = alpha(C.muted, .35); g.strokeStyle = C.muted; g.lineWidth = 1.4; g.beginPath(); g.ellipse(bx, by, 26, 32, 0, 0, 7); g.fill(); g.stroke(); const sw = Math.sin(t * 1.1) * .22; const hx = bx + Math.sin(sw) * 34, hy = by + 32 + Math.cos(sw) * 34; g.beginPath(); g.moveTo(bx, by + 32); g.lineTo(hx, hy - 8); g.stroke(); nodesNow.push({ k: 'globo', x: hx, y: hy, a: sw + Math.sin(t * 2.3) * .1, st: 'ok', tag: 'Globo · oscila' }); }
+      { const bx = 905 + Math.sin(t * .4) * 10, by = 150 + Math.sin(t * .6) * 6, gx = 905, gy = groundY(gx); g.strokeStyle = C.muted; g.lineWidth = 1; g.beginPath(); g.moveTo(gx, gy); g.quadraticCurveTo(gx - 14, (gy + by) / 2, bx, by + 30); g.stroke(); g.fillStyle = alpha(C.muted, .35); g.strokeStyle = C.muted; g.lineWidth = 1.4; g.beginPath(); g.ellipse(bx, by, 26, 32, 0, 0, 7); g.fill(); g.stroke(); const sw = Math.sin(t * 1.1) * .22; const hx = bx + Math.sin(sw) * 34, hy = by + 32 + Math.cos(sw) * 34; g.beginPath(); g.moveTo(bx, by + 32); g.lineTo(hx, hy - 6); g.stroke(); nodesNow.push({ k: 'globo', x: hx, y: hy, a: sw + Math.sin(t * 2.3) * .1, st: 'ok', tag: 'Globo · Ultra12 · oscila', u: true, flip: true }); }
       // sonido y rayos
       const per = 1.3; for (let k = 0; k < 3; k++) { const a = ((t + k * per / 3) % per); g.strokeStyle = alpha(C.ink, .2 * (1 - a / per)); g.lineWidth = 1.2; g.beginPath(); g.arc(dxp, dyp, a * 300, 0, 7); g.stroke(); }
       nodesNow.forEach(n => { if (n.st !== 'ok' || n.hidden) return; if (Math.hypot(n.x - dxp, n.y - dyp) > 600) return; g.strokeStyle = alpha(C.accent, .45); g.lineWidth = 1.3; g.setLineDash([5, 4]); g.beginPath(); g.moveTo(n.x, n.y); g.lineTo(dxp, dyp); g.stroke(); g.setLineDash([]); });
@@ -2016,8 +2120,12 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
       drawDrone(g, dxp, dyp, 9, C.ink, t);
       // nodos y etiquetas
       for (const k in pos) delete pos[k];
-      nodesNow.forEach(n => { if (n.hidden) return; pos[n.k] = n; if (n.k === sel) { g.strokeStyle = C.accent; g.lineWidth = 2; g.beginPath(); g.arc(n.x, n.y, 24 * Math.min(FS, 1.4), 0, 7); g.stroke(); } nodeGlyph(g, n.x, n.y, n.a, n.st, Math.min(FS, 1.5)); });
-      nodesNow.forEach(n => { if (n.hidden) return; const ly = n.k === 'globo' ? n.y + 44 * Math.min(FS, 1.4) : n.y - 26 * Math.min(FS, 1.5); label(FS > 1.4 ? n.tag.split(' · ')[0] : n.tag, Math.max(60, Math.min(W - 60, n.x)), ly, n.k === sel); });
+      nodesNow.forEach(n => {
+        if (n.hidden) return; pos[n.k] = n; const sz = Math.min(FS, 1.5), da = n.a + (n.flip ? Math.PI : 0);
+        if (n.k === sel) { const off = n.u ? 15 * sz : 0, cx = n.x + Math.sin(da) * off, cy = n.y - Math.cos(da) * off; g.strokeStyle = C.accent; g.lineWidth = 2; g.beginPath(); g.arc(cx, cy, (n.u ? 32 : 24) * Math.min(FS, 1.4), 0, 7); g.stroke(); }
+        nodeGlyph(g, n.x, n.y, da, n.st, sz, n.u);
+      });
+      nodesNow.forEach(n => { if (n.hidden) return; const ly = n.k === 'globo' ? n.y + 60 * Math.min(FS, 1.5) : n.y - (n.u ? 46 : 30) * Math.min(FS, 1.5); label(FS > 1.4 ? n.tag.split(' · ').slice(0, n.u ? 2 : 1).join(' · ') : n.tag, Math.max(60, Math.min(W - 60, n.x)), ly, n.k === sel); });
       label('Central', 40, CEN.y - 12, false);
       g.fillStyle = C.muted; g.font = `${(11 * FS).toFixed(1)}px "IBM Plex Mono", monospace`; g.fillText('Vista lateral ilustrativa, sin escala', 120, 22);
       // ficha del nodo seleccionado
@@ -2029,20 +2137,168 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
         const as = ac.width / 240; ag.setTransform(as, 0, 0, as, 0, 0); ag.fillStyle = C.field; ag.fillRect(0, 0, 240, 240);
         ag.strokeStyle = C.line; ag.lineWidth = 2; ag.setLineDash([6, 6]); ag.beginPath(); ag.moveTo(120, 20); ag.lineTo(120, 220); ag.moveTo(20, 120); ag.lineTo(220, 120); ag.stroke(); ag.setLineDash([]);
         ag.fillStyle = C.muted; ag.font = '20px "IBM Plex Mono", monospace'; ag.textAlign = 'center'; ag.fillText('arriba', 120, 18 + 6); ag.textAlign = 'left';
-        nodeGlyph(ag, 120, 128, cur.a, cur.st, 4.4);
+        if (cur.u) nodeGlyph(ag, 120, cur.flip ? 92 : 150, cur.a + (cur.flip ? Math.PI : 0), cur.st, 3.2, true); else nodeGlyph(ag, 120, 136, cur.a, cur.st, 4.4);
       }
       requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
   })();
 
+  /* ---------- Familia: Standard8 y super nodos Ultra ---------- */
+  (function family() {
+    const cv = document.getElementById('famCanvas'); if (!cv) return;
+    const g = cv.getContext('2d'), W = 1000, H = 600, CX = 650, CY = 286, GY = 548, LW = 300;
+    const fib = n => Array.from({ length: n }, (_, i) => { const y = 1 - 2 * (i + .5) / n, r = Math.sqrt(1 - y * y), a = i * 2.399963 + .4; return [Math.cos(a) * r, y, Math.sin(a) * r]; });
+    const cube = [[1, 1, 1], [1, -1, -1], [-1, 1, -1], [-1, -1, 1], [-1, -1, -1], [-1, 1, 1], [1, -1, 1], [1, 1, -1]].map(p => p.map(v => v / Math.sqrt(3)));
+    const F = {
+      standard8: { name: 'Standard8', tier: 'Nodo de serie', ch: 8, pts: cube, wire: 'cube', rM: .0693, R: 128, mounts: ['mochila', 'suelo'], mount: 'compacto · mochila · suelo · vehículo', ap: '≈ 14 cm', why: 'El nodo de serie. Ocho micrófonos iguales en dos tetraedros intercalados, compacto para la mochila, el suelo o un vehículo. Si se tapan dos, los seis restantes siguen dando dirección 3D.' },
+      ultra12: { name: 'Ultra12', tier: 'Super nodo', ch: 12, pts: fib(12), wire: 'sphere', rM: .125, R: 160, mounts: ['globo'], mount: 'globo cautivo', ap: '20–30 cm', why: 'El super nodo más liviano, para colgar de un globo cautivo. Doce micrófonos en un cabezal rígido con su propia IMU, que mide cada balanceo del cabezal.' },
+      ultra16: { name: 'Ultra16', tier: 'Super nodo', ch: 16, pts: fib(16), wire: 'sphere', rM: .175, R: 190, mounts: ['poste', 'globo'], mount: 'poste · globo cautivo', ap: '25–45 cm', why: 'La referencia de los super nodos. Dieciséis micrófonos con 25 a 45 cm de apertura en poste, o 20 a 30 cm bajo un globo. Más pares y más apertura para los tonos graves de las hélices.' },
+      ultra24: { name: 'Ultra24', tier: 'Super nodo ampliado', ch: 24, pts: fib(24), wire: 'sphere', rM: .275, R: 220, mounts: ['poste', 'globo'], mount: 'poste ampliado · globo', ap: '40–70 cm', why: 'Para postes clave y globos que lo sostengan. Veinticuatro micrófonos en tres bloques de ocho con reloj común, sobre una estructura de 40 a 70 cm.' },
+      ultra32: { name: 'Ultra32', tier: 'Super nodo ampliado', ch: 32, pts: fib(32), wire: 'sphere', rM: .275, R: 220, mounts: ['poste'], mount: 'mástil fijo', ap: '40–70 cm', why: 'El máximo de la familia, para mástiles fijos con energía y datos por cable. Treinta y dos micrófonos y 496 pares, pensado para escenas con varias fuentes a la vez.' },
+    };
+    const ORDER = ['standard8', 'ultra12', 'ultra16', 'ultra24', 'ultra32'];
+    const chips = document.getElementById('famChips');
+    ORDER.forEach(k => { const b = document.createElement('button'); b.type = 'button'; b.className = 'chipbtn'; b.dataset.k = k; b.textContent = F[k].name; b.onclick = () => { touched = true; select(k); }; chips.appendChild(b); });
+    const fmt = v => v.toFixed(2).replace('.', ',');
+    let cur = 'standard8', from = null, to = null, mk = 1, R0 = 128, R1 = 128, wireFrom = 'cube', wireTo = 'cube', touched = false;
+    let yaw = .5, tilt = .42, t = 0, last = 0, drag = false, lx = 0, ly = 0, sPrev = 9, FS = 1;
+    const flash = new Map();
+    const ease = m => m < .5 ? 2 * m * m : 1 - 2 * (1 - m) * (1 - m);
+    const CUBE_E = []; for (let i = 0; i < 8; i++) for (let j = i + 1; j < 8; j++) if (cube[i].filter((v, k) => v !== cube[j][k]).length === 1) CUBE_E.push([i, j]);
+    const pos = () => { const n = Math.max(from.length, to.length), e = ease(mk); return Array.from({ length: n }, (_, i) => { const a = from[i], b = to[i]; if (a && b) return { p: a.map((v, k) => v + (b[k] - v) * e), al: 1 }; if (b) return { p: b.map(v => v * (.2 + .8 * e)), al: e }; return { p: a.map(v => v * (1 - .8 * e)), al: 1 - e }; }); };
+    function select(k) {
+      const f = F[k];
+      if (!to) { from = f.pts.slice(); R0 = f.R; wireFrom = f.wire; mk = 1; }
+      else { const e = ease(mk); from = pos().filter(o => o.al > .5).map(o => o.p); R0 = R0 + (R1 - R0) * e; wireFrom = mk < .5 ? wireFrom : wireTo; mk = reduce ? 1 : 0; }
+      to = f.pts.slice(); R1 = f.R; wireTo = f.wire; cur = k; if (reduce) R0 = R1;
+      document.getElementById('famTier').textContent = f.tier; document.getElementById('famName').textContent = f.name;
+      const mp = document.getElementById('famMount'); mp.textContent = f.mount; mp.className = 'pill ' + (k === 'standard8' ? 'ok' : 'part');
+      document.getElementById('famWhy').textContent = f.why; document.getElementById('famCh').textContent = f.ch;
+      document.getElementById('famPairs').textContent = f.ch * (f.ch - 1) / 2; document.getElementById('famAp').textContent = f.ap;
+      document.getElementById('famRate').textContent = `${fmt(f.ch * .096)} MB/s`;
+      chips.querySelectorAll('.chipbtn').forEach(b => { const on = b.dataset.k === k; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+      flash.clear();
+    }
+    select('standard8');
+
+    cv.addEventListener('pointerdown', e => { drag = true; touched = true; lx = e.clientX; ly = e.clientY; cv.setPointerCapture(e.pointerId); });
+    cv.addEventListener('pointermove', e => { if (!drag) return; const r = cv.getBoundingClientRect(), k = W / r.width; yaw += (e.clientX - lx) * k * .006; tilt = Math.max(.08, Math.min(1, tilt + (e.clientY - ly) * k * .004)); lx = e.clientX; ly = e.clientY; });
+    const end = () => { drag = false; }; cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end);
+    if (!reduce) setInterval(() => { if (touched || !isVis(cv)) return; select(ORDER[(ORDER.indexOf(cur) + 1) % ORDER.length]); }, 6500);
+
+    const SRC = (() => { const v = [-.78, .44, .46], n = Math.hypot(...v); return v.map(x => x / n); })();
+    const yawRot = ([x, y, z], a) => [x * Math.cos(a) + z * Math.sin(a), y, -x * Math.sin(a) + z * Math.cos(a)];
+    const view = ([x, y, z], R) => { const ct = Math.cos(tilt), st = Math.sin(tilt); return [CX + x * R, CY - (y * ct - z * st) * R, y * st + z * ct]; };
+    const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+    const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+    const norm = v => { const n = Math.hypot(...v) || 1; return v.map(x => x / n); };
+
+    function miniHead(x, y, rr, n, sel) {
+      g.fillStyle = C.surface; g.strokeStyle = C.node; g.lineWidth = 1.4; g.beginPath(); g.arc(x, y, rr, 0, 7); g.fill(); g.stroke();
+      g.fillStyle = C.node; const m = Math.min(n, 10); for (let k = 0; k < m; k++) { const a = k / m * Math.PI * 2 + t * .4; g.beginPath(); g.arc(x + Math.cos(a) * rr, y + Math.sin(a) * rr * .55, 1.5, 0, 7); g.fill(); }
+      if (sel) { g.strokeStyle = alpha(C.accent, .9); g.lineWidth = 1.6; g.beginPath(); g.arc(x, y, rr + 6, 0, 7); g.stroke(); }
+    }
+    function person(x, gy, ph, pack) {
+      const hip = gy - 30, sh = gy - 56, st = Math.sin(ph);
+      g.strokeStyle = alpha(C.ink, .8); g.lineWidth = 2.6; g.lineCap = 'round'; g.beginPath();
+      g.moveTo(x, hip); g.lineTo(x + st * 7, gy); g.moveTo(x, hip); g.lineTo(x - st * 7, gy); g.moveTo(x, hip); g.lineTo(x + 2, sh); g.moveTo(x, sh + 5); g.lineTo(x + 9 - st * 2, hip + 3); g.stroke(); g.lineCap = 'butt';
+      g.fillStyle = alpha(C.ink, .8); g.beginPath(); g.arc(x + 3, sh - 9, 6, 0, 7); g.fill();
+      if (pack) { g.fillStyle = alpha(C.muted, .85); g.fillRect(x - 15, sh + 1, 11, 20); return [x - 10, sh - 12]; }
+      return null;
+    }
+    function mounts(f) {
+      const ms = f.mounts, xs = ms.length === 1 ? [150] : [86, 216], heads = [], rr = 5 + f.R / 26;
+      g.strokeStyle = alpha(C.line, 1); g.lineWidth = 1; g.setLineDash([3, 5]); g.beginPath(); g.moveTo(LW, 20); g.lineTo(LW, H - 20); g.stroke(); g.setLineDash([]);
+      g.fillStyle = alpha(C.line, .5); g.fillRect(14, GY, LW - 28, H - GY - 26); g.strokeStyle = C.muted; g.lineWidth = 1.3; g.beginPath(); g.moveTo(14, GY); g.lineTo(LW - 14, GY); g.stroke();
+      ms.forEach((m, i) => {
+        const x = xs[i]; let hp;
+        if (m === 'mochila') { const p = person(x + 8, GY, t * 5, true); g.strokeStyle = C.node; g.lineWidth = 1.4; g.beginPath(); g.moveTo(p[0], p[1] + 12); g.lineTo(p[0], p[1] + 5); g.stroke(); hp = p; }
+        else if (m === 'suelo') { g.fillStyle = C.surface; g.strokeStyle = C.node; g.lineWidth = 1.4; g.save(); g.translate(x, GY - 6); g.rotate(-.12); g.fillRect(-11, -6, 22, 12); g.strokeRect(-11, -6, 22, 12); g.beginPath(); g.moveTo(0, -6); g.lineTo(0, -12); g.stroke(); g.restore(); hp = [x - 1.5, GY - 22]; }
+        else if (m === 'poste') { const top = GY - 300; g.strokeStyle = C.muted; g.lineWidth = 5; g.beginPath(); g.moveTo(x, GY); g.lineTo(x, top); g.stroke(); g.strokeStyle = alpha(C.accent, .55); g.lineWidth = 1.2; g.setLineDash([4, 4]); g.beginPath(); g.moveTo(x + 5, top + 4); g.lineTo(x + 5, GY - 30); g.stroke(); g.setLineDash([]); g.fillStyle = alpha(C.muted, .8); g.fillRect(x + 4, GY - 32, 18, 24); person(x + 46, GY, 0, false); hp = [x, top - rr - 2]; }
+        else if (m === 'globo') { const sw = Math.sin(t * 1.1) * .2, bx = x + Math.sin(t * .4) * 6, by = 96; g.strokeStyle = C.muted; g.lineWidth = 1; g.beginPath(); g.moveTo(x - 30, GY); g.quadraticCurveTo(x - 40, (GY + by) / 2, bx, by + 44); g.stroke(); g.fillStyle = alpha(C.muted, .35); g.lineWidth = 1.4; g.beginPath(); g.ellipse(bx, by, 36, 44, 0, 0, 7); g.fill(); g.stroke(); const hx = bx + Math.sin(sw) * 70, hy = by + 44 + Math.cos(sw) * 70; g.beginPath(); g.moveTo(bx, by + 44); g.lineTo(hx, hy - rr); g.stroke(); g.fillStyle = C.muted; g.fillRect(x - 34, GY - 5, 8, 5); hp = [hx, hy]; }
+        heads.push(hp);
+        g.fillStyle = C.muted; g.font = `${(10.5 * FS).toFixed(1)}px "IBM Plex Mono", monospace`; g.textAlign = 'center'; g.fillText(m === 'globo' ? 'globo cautivo' : m, x, H - 8); g.textAlign = 'left';
+      });
+      heads.forEach((hp, i) => miniHead(hp[0], hp[1], rr, f.ch, i === 0));
+      g.fillStyle = C.muted; g.font = `${(10.5 * FS).toFixed(1)}px "IBM Plex Mono", monospace`; g.fillText('Montaje', 22, 32);
+      return heads[0];
+    }
+
+    watchVis(cv);
+    function frame(now) {
+      if (!isVis(cv)) { last = now; requestAnimationFrame(frame); return; }
+      const dt = Math.min(.05, (now - (last || now)) / 1000); last = now; if (!reduce) t += dt;
+      const r = cv.getBoundingClientRect();
+      if (r.width) { const dpr = Math.min(2, devicePixelRatio || 1), bw = Math.round(r.width * dpr); if (cv.width !== bw) { cv.width = bw; cv.height = Math.round(bw * H / W); } FS = Math.min(2.1, Math.max(1, W / r.width * .8)); }
+      const s = cv.width / W; g.setTransform(s, 0, 0, s, 0, 0);
+      g.fillStyle = C.field; g.fillRect(0, 0, W, H);
+      if (mk < 1) mk = Math.min(1, mk + dt / .9);
+      if (!drag && !reduce) yaw += dt * .32;
+      const f = F[cur], e = mk < .5 ? 2 * mk * mk : 1 - 2 * (1 - mk) * (1 - mk), R = R0 + (R1 - R0) * e;
+      const head = mounts(f);
+      // sombra del cabezal
+      g.fillStyle = alpha(C.line, .45); g.beginPath(); g.ellipse(CX, CY + R * 1.08, R * .9, R * .11, 0, 0, 7); g.fill();
+      g.save(); g.beginPath(); g.rect(LW + 1, 0, W - LW, H); g.clip();
+      const pts = pos().map(o => { const w = yawRot(o.p, yaw); return { w, v: view(w, R), al: o.al }; });
+      const wire = mk < .5 ? wireFrom : wireTo, wa = Math.abs(2 * e - 1);
+      const seg = (a, b, al, col, wd) => { const pa = view(a, R), pb = view(b, R), dz = (pa[2] + pb[2]) / 2; g.strokeStyle = alpha(col, al * (.35 + .65 * (dz + 1) / 2)); g.lineWidth = wd; g.beginPath(); g.moveTo(pa[0], pa[1]); g.lineTo(pb[0], pb[1]); g.stroke(); };
+      if (wire === 'cube' && pts.length >= 8) {
+        const c = pts.slice(0, 8).map(o => o.w);
+        CUBE_E.forEach(([i, j]) => seg(c[i], c[j], .75 * wa, C.ink, 1.3));
+        [[0, 1, 2, 3], [4, 5, 6, 7]].forEach(q => { for (let a = 0; a < 4; a++) for (let b = a + 1; b < 4; b++) seg(c[q[a]], c[q[b]], .5 * wa, C.accent, 1); });
+      } else if (wire === 'sphere') {
+        const circ = (fn) => { let p0 = fn(0); for (let k = 1; k <= 48; k++) { const p1 = fn(k / 48 * Math.PI * 2); seg(p0, p1, .5 * wa, C.ink, 1); p0 = p1; } };
+        [-.62, 0, .62].forEach(yy => { const rr = Math.sqrt(1 - yy * yy); circ(a => yawRot([Math.cos(a) * rr, yy, Math.sin(a) * rr], yaw)); });
+        [0, Math.PI / 3, 2 * Math.PI / 3].forEach(m0 => circ(a => yawRot([Math.cos(a) * Math.cos(m0), Math.sin(a), Math.cos(a) * Math.sin(m0)], yaw)));
+        pts.forEach(o => seg([0, 0, 0], o.w, .22 * wa * o.al, C.node, 1));
+      }
+      // IMU rígida en el centro del cabezal
+      g.fillStyle = C.surface; g.strokeStyle = C.ink; g.lineWidth = 1.2; g.fillRect(CX - 9, CY - 7, 18, 14); g.strokeRect(CX - 9, CY - 7, 18, 14);
+      g.fillStyle = C.muted; g.font = `${(9 * FS).toFixed(1)}px "IBM Plex Mono", monospace`; g.textAlign = 'center'; g.fillText('IMU', CX, CY + 22 * Math.min(FS, 1.4)); g.textAlign = 'left';
+      // frente de onda plano que cruza el cabezal desde la fuente
+      const per = 2.8, ph = (t % per) / per, sw = reduce ? .25 : 1.45 - ph * 2.9;
+      const ub = norm(cross(SRC, [0, 1, 0])), vb = cross(SRC, ub);
+      if (Math.abs(sw) < 1.4) {
+        g.beginPath(); for (let k = 0; k <= 56; k++) { const a = k / 56 * Math.PI * 2, q = [0, 1, 2].map(i => SRC[i] * sw + 1.3 * (ub[i] * Math.cos(a) + vb[i] * Math.sin(a))), v = view(q, R); k ? g.lineTo(v[0], v[1]) : g.moveTo(v[0], v[1]); }
+        g.closePath(); const fade = 1 - Math.abs(sw) / 1.4; g.fillStyle = alpha(C.accent, .045 * fade); g.fill(); g.strokeStyle = alpha(C.accent, .4 * fade); g.lineWidth = 1.2; g.stroke();
+      }
+      pts.forEach((o, i) => { const a = dot(o.w, SRC); if (sPrev > a && sw <= a) flash.set(i, t); });
+      sPrev = sw;
+      // micrófonos ordenados por profundidad
+      [...pts.keys()].sort((a, b) => pts[a].v[2] - pts[b].v[2]).forEach(i => {
+        const o = pts[i], [x, y, z] = o.v, rr = (3.4 + 2.2 * (z + 1) / 2) * Math.min(FS, 1.5), fl = flash.has(i) ? Math.exp(-(t - flash.get(i)) * 2.6) : 0;
+        if (fl > .02) { g.fillStyle = alpha(C.accent, .35 * fl); g.beginPath(); g.arc(x, y, rr + 9 * fl, 0, 7); g.fill(); }
+        g.fillStyle = fl > .3 ? C.accent : alpha(C.ink, (.45 + .55 * (z + 1) / 2) * o.al); g.beginPath(); g.arc(x, y, rr, 0, 7); g.fill();
+      });
+      g.restore();
+      // fuente
+      { const d = view(SRC, R + 96); drawDrone(g, d[0], d[1], 9 * Math.min(FS, 1.4), C.ink, t); g.strokeStyle = alpha(C.ink, .3); g.setLineDash([3, 5]); g.lineWidth = 1; g.beginPath(); g.moveTo(d[0], d[1]); g.lineTo(CX, CY); g.stroke(); g.setLineDash([]); }
+      // línea guía desde el montaje
+      if (head) { g.strokeStyle = alpha(C.accent, .4); g.setLineDash([2, 5]); g.lineWidth = 1.2; g.beginPath(); g.moveTo(head[0] + 12, head[1]); g.lineTo(CX - R * 1.08, CY); g.stroke(); g.setLineDash([]); }
+      // rótulos, escala y tiempo de cruce
+      const fsz = Math.min(FS, 1.6);
+      g.fillStyle = C.ink; g.font = `800 ${(36 * fsz).toFixed(1)}px "Big Shoulders Display", "Arial Narrow", sans-serif`; g.fillText(f.name.toUpperCase(), LW + 26, 52 * fsz);
+      g.fillStyle = C.muted; g.font = `${(11 * FS).toFixed(1)}px "IBM Plex Mono", monospace`; g.fillText(`${f.ch} micrófonos · ${f.ch * (f.ch - 1) / 2} pares`, LW + 28, 52 * fsz + 20 * FS);
+      const ppm = R / f.rM, bar = .1 * ppm, bx = W - 40 - bar, by = H - 46;
+      g.fillStyle = C.muted; g.fillRect(bx, by, bar, 3); g.fillRect(bx, by - 4, 2, 11); g.fillRect(bx + bar - 2, by - 4, 2, 11); g.textAlign = 'right'; g.fillText('10 cm', W - 40, by - 9);
+      const sp = pts.reduce((m, o) => [Math.min(m[0], dot(o.w, SRC)), Math.max(m[1], dot(o.w, SRC))], [9, -9]), us = (sp[1] - sp[0]) * f.rM / C_SOUND * 1e6;
+      g.fillStyle = C.ink; g.fillText(`El frente cruza el cabezal en ${Math.round(us).toLocaleString('es-ES')} µs`, W - 40, H - 16); g.textAlign = 'left';
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+
   /* ---------- Dirección de llegada ---------- */
-  const dc = document.getElementById('doa'), dx = dc.getContext('2d'), DW = 1000, DH = 560, MR = .045;
-  const MICS = [[MR, 0], [0, MR], [-MR, 0], [0, -MR]];
-  let doaHist = [], theta = 40 * Math.PI / 180, psi = 0, psiTarget = null, doaT = 0, tauMeas = [0, 0, 0, 0], doaDrag = false, doaFS = 1;
-  const doaUI = { psi: document.getElementById('doaPsi'), noise: document.getElementById('doaNoise'), imu: document.getElementById('doaImu') };
+  const dc = document.getElementById('doa'), dx = dc.getContext('2d'), DW = 1000, DH = 560, CA = .04;
+  // Standard8: vértices de un cubo de 80 mm (z hacia arriba). M1–M4 y M5–M8 forman dos tetraedros intercalados.
+  const MICS = [[1, 1, 1], [1, -1, -1], [-1, 1, -1], [-1, -1, 1], [-1, -1, -1], [-1, 1, 1], [1, -1, 1], [1, 1, -1]].map(p => p.map(v => v * CA)), NM = MICS.length;
+  const CUBE_EDGES = []; for (let i = 0; i < NM; i++) for (let j = i + 1; j < NM; j++) if (MICS[i].filter((v, k) => v !== MICS[j][k]).length === 1) CUBE_EDGES.push([i, j]);
+  let doaHist = [], theta = 40 * Math.PI / 180, psi = 0, psiTarget = null, doaT = 0, tauMeas = MICS.map(() => 0), doaDrag = false, doaFS = 1, elev = 25 * Math.PI / 180, elEst = elev;
+  const doaUI = { psi: document.getElementById('doaPsi'), noise: document.getElementById('doaNoise'), imu: document.getElementById('doaImu'), el: document.getElementById('doaEl') };
   doaUI.psi.oninput = () => { psi = +doaUI.psi.value * Math.PI / 180; psiTarget = null; };
   doaUI.noise.oninput = () => { document.getElementById('doaNoiseL').textContent = `${doaUI.noise.value} µs`; };
+  doaUI.el.oninput = () => { elev = +doaUI.el.value * Math.PI / 180; document.getElementById('doaElL').textContent = `${doaUI.el.value}°`; };
   document.getElementById('doaSpin').onclick = () => { psiTarget = wrap(psi + (Math.random() > .5 ? 1 : -1) * (1.2 + Math.random() * 1.6)); };
   const deg = a => Math.round(((a * 180 / Math.PI) % 360 + 360) % 360);
   const sdeg = a => { const v = Math.round(a * 180 / Math.PI); return (v > 0 ? '+' : '') + v; };
@@ -2060,12 +2316,14 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     const dt = Math.min(.05, (now - (doaFrame.last || now)) / 1000); doaFrame.last = now; doaT += dt;
     if (psiTarget !== null) { const d = wrap(psiTarget - psi); psi += Math.sign(d) * Math.min(Math.abs(d), dt * 2.2); if (Math.abs(d) < .005) psiTarget = null; doaUI.psi.value = Math.round(psi * 180 / Math.PI); }
     document.getElementById('doaPsiL').textContent = `${sdeg(psi)}°`;
-    const ux = Math.cos(theta), uy = Math.sin(theta), cs = Math.cos(psi), sn = Math.sin(psi);
-    const world = MICS.map(([x, y]) => [x * cs - y * sn, x * sn + y * cs]);
-    const tauTrue = world.map(([x, y]) => -(x * ux + y * uy) / C_SOUND);
+    const ce = Math.cos(elev), ux = Math.cos(theta) * ce, uy = Math.sin(theta) * ce, uz = Math.sin(elev), cs = Math.cos(psi), sn = Math.sin(psi);
+    const world = MICS.map(([x, y, z]) => [x * cs - y * sn, x * sn + y * cs, z]);
+    const tauTrue = world.map(([x, y, z]) => -(x * ux + y * uy + z * uz) / C_SOUND);
     if (Math.floor(doaT * 6) !== Math.floor((doaT - dt) * 6)) tauMeas = tauTrue.map(t => t + gauss() * doaUI.noise.value * 1e-6);
-    const m = tauMeas.reduce((a, b) => a + b, 0) / 4; let bx = 0, by = 0;
-    MICS.forEach(([x, y], i) => { bx += x * (tauMeas[i] - m); by += y * (tauMeas[i] - m); });
+    // mínimos cuadrados sobre los ocho retardos: para el cubo, el vector de llegada es proporcional a −Σ p·(τ − τ̄)
+    const m = tauMeas.reduce((a, b) => a + b, 0) / NM; let bx = 0, by = 0, bz = 0;
+    MICS.forEach(([x, y, z], i) => { const d = tauMeas[i] - m; bx += x * d; by += y * d; bz += z * d; });
+    elEst = Math.atan2(-bz, Math.hypot(bx, by));
     const local = Math.atan2(-by, -bx), yawKnown = doaUI.imu.checked ? psi : 0, mapB = local + yawKnown, err = wrap(mapB - theta);
     if (!doaHist.length || doaHist[doaHist.length - 1] !== mapB) { doaHist.push(mapB); if (doaHist.length > 40) doaHist.shift(); }
     document.getElementById('doaLocal').textContent = `${deg(local)}°`;
@@ -2078,7 +2336,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     dx.fillStyle = C.field; dx.fillRect(0, 0, DW, DH);
     const F = px => `${(px * doaFS).toFixed(1)}px "IBM Plex Mono", monospace`;
     // vista del arreglo
-    const SCL = 2000, R0 = 200;
+    const SCL = 1500, R0 = 200, ND = 104, OB = [-.22, -.72];
     dx.strokeStyle = alpha(C.line, 1); dx.lineWidth = 1; dx.beginPath(); dx.arc(AC.x, AC.y, R0, 0, 7); dx.stroke();
     for (let a = 0; a < 360; a += 30) { const rad = a * Math.PI / 180, x1 = AC.x + Math.cos(rad) * (R0 - 6), y1 = AC.y + Math.sin(rad) * (R0 - 6); dx.beginPath(); dx.moveTo(x1, y1); dx.lineTo(AC.x + Math.cos(rad) * R0, AC.y + Math.sin(rad) * R0); dx.stroke(); }
     dx.save(); dx.beginPath(); dx.arc(AC.x, AC.y, R0 - 1, 0, 7); dx.clip();
@@ -2086,42 +2344,53 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     for (let k = -6; k <= 6; k++) { const off = R0 - (k * lam + phase); const cx0 = AC.x + ux * off, cy0 = AC.y + uy * off; dx.strokeStyle = alpha(C.accent, .35); dx.lineWidth = 2; dx.beginPath(); dx.moveTo(cx0 - uy * 260, cy0 + ux * 260); dx.lineTo(cx0 + uy * 260, cy0 - ux * 260); dx.stroke(); }
     dx.restore();
     dx.save(); dx.translate(AC.x, AC.y); dx.rotate(psi);
-    dx.strokeStyle = C.ink; dx.lineWidth = 2; dx.fillStyle = C.surface; dx.beginPath(); dx.arc(0, 0, MR * SCL + 24, 0, 7); dx.fill(); dx.stroke();
-    dx.strokeStyle = C.node; dx.setLineDash([4, 4]); dx.beginPath(); dx.moveTo(0, 0); dx.lineTo(MR * SCL + 46, 0); dx.stroke(); dx.setLineDash([]);
-    dx.fillStyle = C.node; dx.beginPath(); dx.moveTo(MR * SCL + 54, 0); dx.lineTo(MR * SCL + 42, -6); dx.lineTo(MR * SCL + 42, 6); dx.closePath(); dx.fill();
+    dx.strokeStyle = C.ink; dx.lineWidth = 2; dx.fillStyle = C.surface; dx.beginPath(); dx.arc(0, 0, ND, 0, 7); dx.fill(); dx.stroke();
+    dx.strokeStyle = C.node; dx.setLineDash([4, 4]); dx.beginPath(); dx.moveTo(0, 0); dx.lineTo(ND + 22, 0); dx.stroke(); dx.setLineDash([]);
+    dx.fillStyle = C.node; dx.beginPath(); dx.moveTo(ND + 30, 0); dx.lineTo(ND + 18, -6); dx.lineTo(ND + 18, 6); dx.closePath(); dx.fill();
     dx.restore();
-    dx.fillStyle = C.node; dx.fillText('frente del nodo', AC.x + Math.cos(psi) * (MR * SCL + 62) - 10, AC.y + Math.sin(psi) * (MR * SCL + 62) + 18);
+    dx.fillStyle = C.node; dx.font = F(11); dx.fillText('frente del nodo', AC.x + Math.cos(psi) * (ND + 38) - 10, AC.y + Math.sin(psi) * (ND + 38) + 18);
+    // cabezal en perspectiva: la cara superior se desplaza hacia arriba para leer las dos capas del cubo
     const order = tauTrue.map((t, i) => [t, i]).sort((a, b) => a[0] - b[0]);
-    world.forEach(([x, y], i) => { const px = AC.x + x * SCL, py = AC.y + y * SCL, rank = order.findIndex(o => o[1] === i); dx.fillStyle = rank === 0 ? C.accent : C.ink; dx.beginPath(); dx.arc(px, py, 9, 0, 7); dx.fill(); dx.fillStyle = C.surface; dx.font = F(10); dx.textAlign = 'center'; dx.fillText(`M${i + 1}`, px, py + 3.5); dx.textAlign = 'left'; });
+    const scr = world.map(([x, y, z]) => [AC.x + x * SCL + z * SCL * OB[0], AC.y + y * SCL + z * SCL * OB[1]]);
+    CUBE_EDGES.forEach(([i, j]) => { const low = world[i][2] < 0 && world[j][2] < 0, vert = world[i][2] !== world[j][2]; dx.strokeStyle = alpha(C.ink, low ? .3 : vert ? .45 : .8); dx.lineWidth = low ? 1 : 1.5; dx.setLineDash(low ? [3, 4] : []); dx.beginPath(); dx.moveTo(...scr[i]); dx.lineTo(...scr[j]); dx.stroke(); });
+    dx.setLineDash([]);
+    [...world.keys()].sort((a, b) => world[a][2] - world[b][2]).forEach(i => {
+      const [px, py] = scr[i], rank = order.findIndex(o => o[1] === i), up = world[i][2] > 0, r = up ? 9.5 : 8;
+      const hot = Math.max(0, 1 - rank / (NM - 1));
+      dx.fillStyle = rank === 0 ? C.accent : alpha(C.ink, up ? 1 : .72); dx.beginPath(); dx.arc(px, py, r, 0, 7); dx.fill();
+      if (rank > 0 && rank < 3) { dx.strokeStyle = alpha(C.accent, .4 + .5 * hot); dx.lineWidth = 2; dx.stroke(); }
+      dx.fillStyle = C.surface; dx.font = F(9.5); dx.textAlign = 'center'; dx.fillText(`M${i + 1}`, px, py + 3.3); dx.textAlign = 'left';
+    });
     const sxp = AC.x + ux * (R0 + 26), syp = AC.y + uy * (R0 + 26);
     drawDrone(dx, sxp, syp, 9, C.ink, doaT);
     doaHist.forEach((b, i) => { dx.fillStyle = alpha(C.accent, .15 + .75 * i / doaHist.length); dx.beginPath(); dx.arc(AC.x + Math.cos(b) * (R0 - 14), AC.y + Math.sin(b) * (R0 - 14), 3, 0, 7); dx.fill(); });
     dx.strokeStyle = C.accent; dx.lineWidth = 2; dx.beginPath(); dx.moveTo(AC.x, AC.y); dx.lineTo(AC.x + Math.cos(mapB) * (R0 - 10), AC.y + Math.sin(mapB) * (R0 - 10)); dx.stroke();
     { const mb = Math.atan2(doaHist.reduce((a, b) => a + Math.sin(b), 0), doaHist.reduce((a, b) => a + Math.cos(b), 0)); const sd = Math.sqrt(doaHist.reduce((a, b) => a + wrap(b - mb) ** 2, 0) / Math.max(1, doaHist.length)) * 180 / Math.PI; dx.fillStyle = C.muted; dx.font = F(11); dx.fillText(`Dispersión: ±${sd.toFixed(1)}° (${doaHist.length} estimaciones)`, 30, DH - 42); }
     dx.fillStyle = C.muted; dx.font = F(11); dx.fillText('Arrastra alrededor del círculo', 30, 30); dx.fillText('N ↑ · ámbar: rumbo que llega al mapa', 30, DH - 20);
-    // trazas
-    const TX = 500, TW = 470, TOP = 52, ROW = 100, WIN = 1.2e-3, t0 = .6e-3;
+    dx.fillStyle = C.ink; dx.fillText(`Vector 3D · elevación estimada ${Math.round(elEst * 180 / Math.PI)}°`, 30, DH - 64);
+    // trazas de los ocho micrófonos
+    const TX = 500, TW = 470, TOP = 52, ROW = 46, WIN = 1.2e-3, t0 = .6e-3;
     dx.fillStyle = C.muted; dx.font = F(11); dx.fillText('Llegada a cada micrófono · ventana de 1,2 ms', TX, 34);
-    dx.strokeStyle = alpha(C.line, 1); dx.lineWidth = 1; dx.beginPath(); dx.moveTo(TX + TW / 2, TOP - 10); dx.lineTo(TX + TW / 2, TOP + ROW * 4 - 20); dx.stroke();
-    for (let i = 0; i < 4; i++) {
-      const y0 = TOP + ROW * i + 40, tau = tauMeas[i];
-      dx.strokeStyle = alpha(C.line, 1); dx.beginPath(); dx.moveTo(TX, y0); dx.lineTo(TX + TW, y0); dx.stroke();
+    dx.strokeStyle = alpha(C.line, 1); dx.lineWidth = 1; dx.beginPath(); dx.moveTo(TX + TW / 2, TOP - 6); dx.lineTo(TX + TW / 2, TOP + ROW * NM - 6); dx.stroke();
+    for (let i = 0; i < NM; i++) {
+      const y0 = TOP + ROW * i + 26, tau = tauMeas[i], first = order[0][1] === i;
+      dx.strokeStyle = alpha(C.line, 1); dx.lineWidth = 1; dx.beginPath(); dx.moveTo(TX, y0); dx.lineTo(TX + TW, y0); dx.stroke();
       dx.strokeStyle = alpha(C.muted, .45); dx.beginPath(); for (let k = 0; k * (1 / 48000) <= WIN; k++) { const sx2 = TX + k / 48000 / WIN * TW; dx.moveTo(sx2, y0 - 2); dx.lineTo(sx2, y0 + 2); } dx.stroke();
-      dx.strokeStyle = order[0][1] === i ? C.accent : C.ink; dx.lineWidth = 1.6; dx.beginPath();
-      for (let px = 0; px <= TW; px += 2) { const t = px / TW * WIN - t0 - tau, env = Math.exp(-t * t / (2 * (1.1e-4) ** 2)); const v = env * Math.cos(2 * Math.PI * 3000 * t) + gauss() * .02 * (doaUI.noise.value / 10); const yy = y0 - v * 32; px ? dx.lineTo(TX + px, yy) : dx.moveTo(TX + px, yy); }
+      dx.strokeStyle = first ? C.accent : C.ink; dx.lineWidth = 1.5; dx.beginPath();
+      for (let px = 0; px <= TW; px += 2) { const t = px / TW * WIN - t0 - tau, env = Math.exp(-t * t / (2 * (1.1e-4) ** 2)); const v = env * Math.cos(2 * Math.PI * 3000 * t) + gauss() * .02 * (doaUI.noise.value / 10); const yy = y0 - v * 15; px ? dx.lineTo(TX + px, yy) : dx.moveTo(TX + px, yy); }
       dx.stroke();
-      const mx = TX + (t0 + tau) / WIN * TW; dx.strokeStyle = C.node; dx.setLineDash([3, 3]); dx.beginPath(); dx.moveTo(mx, y0 - 40); dx.lineTo(mx, y0 + 30); dx.stroke(); dx.setLineDash([]);
-      dx.fillStyle = C.ink; dx.font = F(11); dx.fillText(`M${i + 1}`, TX, y0 - 40);
-      dx.fillStyle = C.muted; dx.textAlign = 'right'; dx.fillText(`${tau >= 0 ? '+' : '−'}${Math.abs(tau * 1e6).toFixed(0)} µs · ${(Math.abs(tau) * 48000).toFixed(1)} muestras`, TX + TW, y0 - 40); dx.textAlign = 'left';
+      const mx = TX + (t0 + tau) / WIN * TW; dx.strokeStyle = C.node; dx.setLineDash([3, 3]); dx.beginPath(); dx.moveTo(mx, y0 - 18); dx.lineTo(mx, y0 + 16); dx.stroke(); dx.setLineDash([]);
+      dx.fillStyle = first ? C.accent : C.ink; dx.font = `${(9.5 * Math.min(doaFS, 1.9)).toFixed(1)}px "IBM Plex Mono", monospace`; dx.fillText(`M${i + 1}${MICS[i][2] > 0 ? ' ↑' : ' ↓'}`, TX, y0 - 8);
+      dx.fillStyle = C.muted; dx.textAlign = 'right'; dx.fillText(`${tau >= 0 ? '+' : '−'}${Math.abs(tau * 1e6).toFixed(0)} µs · ${(Math.abs(tau) * 48000).toFixed(1)} muestras`, TX + TW, y0 - 8); dx.textAlign = 'left';
     }
-    { // correlación cruzada M1–M3 (tipo GCC-PHAT)
-      const CY = 500, CH = 46, LAG = 320e-6, lx = l => TX + (l + LAG) / (2 * LAG) * TW, dlt = tauMeas[0] - tauMeas[2], lim = 2 * MR / C_SOUND;
+    { // correlación cruzada M1–M5, la diagonal más larga del cubo (tipo GCC-PHAT)
+      const CY = 500, CH = 40, LAG = 480e-6, lx = l => TX + (l + LAG) / (2 * LAG) * TW, dlt = tauMeas[0] - tauMeas[4], lim = 2 * CA * Math.sqrt(3) / C_SOUND;
       dx.fillStyle = alpha(C.line, .5); dx.fillRect(TX, CY - CH, lx(-lim) - TX, CH + 6); dx.fillRect(lx(lim), CY - CH, TX + TW - lx(lim), CH + 6);
       dx.strokeStyle = alpha(C.line, 1); dx.lineWidth = 1; dx.beginPath(); dx.moveTo(TX, CY); dx.lineTo(TX + TW, CY); dx.moveTo(lx(0), CY - CH); dx.lineTo(lx(0), CY + 4); dx.stroke();
       dx.beginPath(); for (let px = 0; px <= TW; px += 2) { const l = -LAG + px / TW * 2 * LAG, u = l - dlt; const v = Math.exp(-((u / 22e-6) ** 2)) + .16 * Math.exp(-((u / 120e-6) ** 2)) * Math.cos(2 * Math.PI * 3000 * u) + Math.abs(gauss()) * .015 * (1 + doaUI.noise.value / 10); const yy = CY - Math.max(-.15, v) * CH; px ? dx.lineTo(TX + px, yy) : dx.moveTo(TX + px, yy); } dx.strokeStyle = C.node; dx.lineWidth = 1.6; dx.stroke();
       const pk = lx(dlt); dx.fillStyle = C.accent; dx.beginPath(); dx.moveTo(pk, CY - CH - 2); dx.lineTo(pk - 5, CY - CH - 10); dx.lineTo(pk + 5, CY - CH - 10); dx.closePath(); dx.fill();
-      dx.fillStyle = C.ink; dx.font = F(11); dx.fillText(`Correlación M1–M3 · pico en ${dlt >= 0 ? '+' : '−'}${Math.abs(dlt * 1e6).toFixed(0)} µs`, TX, CY - CH - 14);
-      dx.fillStyle = C.muted; dx.font = F(10); dx.fillText('−320 µs', TX, CY + 16); dx.textAlign = 'right'; dx.fillText('+320 µs', TX + TW, CY + 16); dx.textAlign = 'left';
+      dx.fillStyle = C.ink; dx.font = F(11); dx.fillText(`${doaFS > 1.3 ? 'M1–M5' : 'Correlación M1–M5'} · pico en ${dlt >= 0 ? '+' : '−'}${Math.abs(dlt * 1e6).toFixed(0)} µs${doaFS > 1.3 ? '' : ' · 1 de 28 pares'}`, TX, CY - CH - 12);
+      dx.fillStyle = C.muted; dx.font = F(10); dx.fillText('−480 µs', TX, CY + 16); dx.textAlign = 'right'; dx.fillText('+480 µs', TX + TW, CY + 16); dx.textAlign = 'left';
     }
     requestAnimationFrame(doaFrame);
   }
@@ -2129,17 +2398,20 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
 
   /* ---------- Evidencia ---------- */
   const ev = [
-    ['acu', 'Dirección acústica', 'Estimación de dirección 3D desde audio multicanal sintético con GCC-PHAT; casos de ruido, reflexiones, mezclas y canales intercambiados que obligan a abstenerse.', 'Grabaciones físicas, respuesta de canal medida y cabezal de micrófonos elegido.', 'ok'],
-    ['acu', 'Calibración', 'Identificación del orden de canales y retardos relativos con referencias independientes reservadas.', 'Respuesta en frecuencia y referencias con incertidumbre medida en banco.', 'ok'],
+    ['acu', 'Dirección acústica', 'Vector de llegada 3D desde audio sintético de 8 a 32 canales con GCC-PHAT. Aparta canales muertos o saturados y se abstiene ante ruido, reflexiones, mezclas o canales intercambiados.', 'Grabaciones físicas, respuesta de canal medida y cabezales elegidos.', 'ok'],
+    ['acu', 'Standard8 y super nodos Ultra', 'Captura y control en firmware C11 v2 para 8, 12, 16, 24 y 32 canales, en PCM16 y PCM24, con cola, cierre y fallos de adquisición declarados.', 'Drivers de placa, DMA y cabezal físico de cada variante.', 'ok'],
+    ['acu', 'Calibración', 'Mapa de canales y retardos relativos para cualquier perfil, comprobado contra una dirección reservada.', 'Respuesta en frecuencia y referencias con incertidumbre medida en banco.', 'ok'],
     ['acu', 'Clasificación de drones', 'Contratos de candidatos por fuente y métricas de evaluación con abstención y desconocidos.', 'Entrenar y evaluar el clasificador con vuelos reales y datos reservados.', 'todo'],
     ['pose', 'Orientación en firmware', 'Integración de giroscopio en C11 con cuaterniones, límites y fallos enclavados, compilado con sanitizers.', 'Drivers de IMU/GNSS reales y rumbo absoluto sin referencia externa.', 'ok'],
-    ['pose', 'Nodo que se mueve', 'Con 2 y 10 nodos, uno se traslada y gira mientras aporta a la posición XY. Pose ligada a cada ventana de captura.', 'Ensayo físico con referencia independiente de pose.', 'part'],
+    ['pose', 'Nodo que se mueve', 'Con 2 y 10 nodos, uno se traslada y gira mientras aporta a la posición XY. Las sesiones multicanal ligan la pose estimada a cada ventana de captura.', 'Ensayo físico con referencia independiente de pose.', 'part'],
     ['pose', 'Posición horizontal', 'Localizador XY con altitud desconocida, región conservadora y rechazo de elevaciones incompatibles.', 'Fuente móvil, seguimiento y región de incertidumbre calibrada.', 'part'],
     ['red', 'Pertenencia y credenciales', 'Registro de miembros, HMAC, protección contra repetición, revocación, transferencia y dos redes aisladas.', 'Emparejamiento por radio en campo y custodia segura de claves.', 'ok'],
-    ['red', 'Ciclo de vida', 'Altas, ausencias, reinicios y reconexiones con 2, 10, 20 y 50 nodos simulados.', 'Radio elegida, alcance y servicio continuo de la central.', 'part'],
+    ['red', 'Red mixta', 'Diez nodos de los cinco perfiles en una misma central persistente, con credenciales y contexto propios de cada nodo.', 'Nodos compactos, de poste y de globo en la misma escena real.', 'ok'],
+    ['red', 'Enlace LoRa', 'Resumen de radio de 80 bytes para los cinco perfiles, en C y Python, y 66 ensayos temporales con colisiones, semidúplex y caducidad, de 2 a 50 nodos.', 'Radio SX1262 y gateway multicanal en banco, con entrega y latencia medidas.', 'ok'],
+    ['red', 'Ciclo de vida', 'Altas, ausencias, reinicios y reconexiones con 2, 10, 20 y 50 nodos simulados; la central retira la evidencia caducada.', 'Radio LoRa en campo y servicio continuo de la central.', 'part'],
     ['red', 'Escucha cooperativa', 'La central pide evidencia a otros nodos; cada uno responde con la suya o se abstiene, sin dejar la escucha basal.', 'Selección dinámica de nodos por geometría y órdenes remotas autenticadas.', 'part'],
     ['op', 'Integridad de captura', 'Auditor de archivos, índices de muestra, pérdidas, CRC y journal con recuperación ante cierre abrupto.', 'Captura en placa con DMA y sincronía física entre canales.', 'ok'],
-    ['op', 'Consola de laboratorio', 'Una herramienta ejecuta cada perfil, conserva fallos y verifica los artefactos generados.', 'Central continua con retención y carga sostenida.', 'ok'],
+    ['op', 'Consola de laboratorio', 'Una herramienta ejecuta cada perfil, Standard8 por defecto, conserva fallos y verifica los artefactos generados.', 'Central continua con retención y carga sostenida.', 'ok'],
     ['op', 'Mapa del operador', 'Vista horizontal de diagnóstico generada por la simulación.', 'Interfaz operativa con estados, edad e incertidumbre visibles.', 'todo'],
   ];
   const evList = document.getElementById('evList');
@@ -2172,12 +2444,12 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
   /* ---------- Hoja de ruta ---------- */
   const road = [
     ['F0', 'Arquitectura y requisitos', 'full', 'Veinte requisitos trazables del producto, contratos entre nodo, red y central, y plan de validación.', 'Completado.'],
-    ['F1', 'Motor de red y fusión', 'full', 'Membresía con credenciales, reconexión, cooperación entre nodos y localización horizontal, probados con hasta 50 nodos simulados.', 'Completado en simulación, con 376 pruebas automáticas.'],
-    ['F2', 'Nodo de campo', 'prep', 'Cabezal de micrófonos, procesador, pose, radio y energía integrados en una unidad robusta.', 'Firmware de captura y orientación listo para la placa.'],
+    ['F1', 'Motor de red y fusión', 'full', 'Membresía con credenciales, reconexión, cooperación entre nodos, localización horizontal, red mixta y enlace LoRa, probados con hasta 50 nodos simulados.', 'Completado en simulación, con 466 pruebas automáticas.'],
+    ['F2', 'Nodo Standard8 de campo', 'prep', 'Cabezal de ocho micrófonos, procesador, pose, radio LoRa y energía integrados en una unidad robusta.', 'Firmware de captura de ocho canales y de orientación listo para la placa.'],
     ['F3', 'Firma de drones', 'prep', 'Biblioteca de vuelos reales e interferentes y clasificador entrenado con datos reservados.', 'Contratos y evaluación listos para recibir datos de campo.'],
     ['F4', 'Primera red en terreno', '', 'Diez nodos reales con mapa 2D en vivo, patrulla en movimiento, emparejamiento y cooperación.', 'Siguiente hito con socios de defensa.'],
     ['F5', 'Escala a 50 nodos', '', 'Redes de cincuenta nodos o más cubriendo perímetros extensos, con latencia y capacidad medidas.', 'Arquitectura ya dimensionada para esta escala.'],
-    ['F6', 'Montajes avanzados', '', 'Nodos lanzados y en globo cautivo, con ensayos de impacto, viento y oscilación.', 'Incluidos en el diseño del nodo desde el inicio.'],
+    ['F6', 'Super nodos y montajes avanzados', '', 'Super nodos Ultra16 en poste, ampliables a 24 y 32, y Ultra12/16 en globo cautivo, junto a nodos lanzados, con ensayos de viento, oscilación e impacto.', 'Perfiles Ultra ya implementados en firmware y software.'],
     ['F7', 'Despliegue operativo', '', 'Varias redes independientes operando lado a lado e integradas al sistema de defensa del cliente.', 'Objetivo de producto.'],
   ];
   const roadEl = document.getElementById('road'), rd = document.getElementById('roadDetail');
