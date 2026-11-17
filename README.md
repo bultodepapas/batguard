@@ -8,6 +8,8 @@ Todo el sitio está en `index.html`: HTML, CSS y JavaScript sin paso de compilac
 
 Las simulaciones corren en el navegador con geometría y ruido ilustrativos. No son resultados de campo.
 
+Actualización del 17 de noviembre de 2026: integración GNSS/IMU, 19 entregas de ingeniería y 491 pruebas en el corte de evidencia citado. La presentación recorre Standard8/Ultra, LoRa, el MVP de diez nodos y el crecimiento hacia redes de 20–50. El detalle de lo construido y el siguiente paso de cada capacidad está en «Lo construido».
+
 `og.jpg` es la imagen de vista previa que muestran las redes al compartir el enlace; su fuente es `og-card.html`.
 
 ## Mantenimiento

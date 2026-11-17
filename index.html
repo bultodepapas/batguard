@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="BatGuard: red acústica pasiva contra drones. Nodos de ocho micrófonos y super nodos de hasta 32 que se despliegan en cualquier soporte y ubican al dron en un mapa 2D.">
+<meta name="description" content="BatGuard: red acústica pasiva contra drones. Standard8 y super nodos Ultra de hasta 32 micrófonos. Despliegue sencillo, nodos móviles y mapa 2D. Explora la demo.">
 <meta property="og:title" content="BatGuard">
-<meta property="og:description" content="Red acústica pasiva contra drones: fácil de desplegar, móvil, escalable y reparable.">
+<meta property="og:description" content="Escucha, localiza y sigue. Nodos Standard8 y super nodos Ultra para una red acústica móvil y escalable. Descubre la demo y 19 entregas de ingeniería.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bultodepapas.github.io/batguard/">
 <meta property="og:locale" content="es_ES">
@@ -17,8 +17,8 @@
 <meta name="theme-color" content="#1b1f16">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%2044%22%3E%3Cpath%20d%3D%22M50%2018%20C48.5%2014%2047.5%2011.5%2046.5%208%20L45%2015.5%20C40%2016%2034%2013%2028%208%20C21%206%2012%208%202%2016%20C8%2017%2011%2020%2012%2025%20C17%2022%2021%2023%2024%2028%20C28%2024%2033%2025%2036%2030%20C40%2027%2044%2028%2047%2033%20L50%2038%20L53%2033%20C56%2028%2060%2027%2064%2030%20C67%2025%2072%2024%2076%2028%20C79%2023%2083%2022%2088%2025%20C89%2020%2092%2017%2098%2016%20C88%208%2079%206%2072%208%20C66%2013%2060%2016%2055%2015.5%20L53.5%208%20C52.5%2011.5%2051.5%2014%2050%2018%20Z%22%20fill%3D%22%234d5f2b%22/%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px;font-family:system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>BatGuard</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="canonical" href="https://bultodepapas.github.io/batguard/">
+<title>BatGuard · detección acústica de drones</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Big+Shoulders+Stencil+Display:wght@900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap">
@@ -598,12 +598,19 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
 .famnote { font-size: 1.02rem; border-left: 3px solid var(--accent); padding-left: 16px; max-width: 75ch; }
 .famnote b { font-weight: 600; }
 .maplegend .ringkey { display: inline-block; width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--ink); vertical-align: middle; margin-right: 6px; }
+.scope-note { font-size: .85rem; color: var(--muted); border-left: 3px solid var(--accent); padding-left: 14px; }
+.skip-link { position: fixed; top: 12px; left: 16px; z-index: 50; transform: translateY(-200%); }
+.skip-link:focus { transform: none; }
+.evidence-note { font-size: .85rem; color: var(--muted); }
+.nav-progress { display: grid; gap: 10px; border-top: 1px solid var(--line); padding-top: 22px; }
 </style>
 
 </head>
 <body>
+<a class="btn skip-link" href="#contenido">Saltar al contenido</a>
 <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
 <nav class="rail" id="rail" aria-label="Diapositivas"></nav>
+<main id="contenido" tabindex="-1">
 
 <!-- 1. Portada -->
 <section class="slide hero" id="inicio" data-label="Inicio">
@@ -613,24 +620,25 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
         <svg viewBox="0 0 100 44" aria-hidden="true" style="width:46px;height:auto"><path d="M50 18 C48.5 14 47.5 11.5 46.5 8 L45 15.5 C40 16 34 13 28 8 C21 6 12 8 2 16 C8 17 11 20 12 25 C17 22 21 23 24 28 C28 24 33 25 36 30 C40 27 44 28 47 33 L50 38 L53 33 C56 28 60 27 64 30 C67 25 72 24 76 28 C79 23 83 22 88 25 C89 20 92 17 98 16 C88 8 79 6 72 8 C66 13 60 16 55 15.5 L53.5 8 C52.5 11.5 51.5 14 50 18 Z" fill="currentColor"/></svg>
         BATGUARD
       </div>
-      <span class="stage-chip"><i></i>Arquitectura completa probada con 466 pruebas automáticas</span>
+      <span class="stage-chip"><i></i>491 pruebas automáticas · 19 entregas de ingeniería</span>
       <h1>Cada dron suena. BatGuard lo escucha y lo pone en el mapa.</h1>
-      <p class="lead">Sensores acústicos pasivos, asequibles y reemplazables para bases, patrullas e infraestructura crítica: nodos compactos de ocho micrófonos y super nodos de hasta 32 para postes y globos. Se colocan en cualquier soporte, calculan solos su posición y orientación, y muestran en un mapa 2D dónde está el dron, con la certeza que sostiene la evidencia.</p>
-      <div class="facts">
-        <div><b>50+</b><span>nodos por red, con el mismo manejo que dos</span></div>
-        <div><b>2</b><span>nodos ya dan alerta y dirección</span></div>
-        <div><b>8–32</b><span>micrófonos por nodo, del compacto al super nodo</span></div>
-        <div><b>7</b><span>formas de desplegarlo, del suelo al globo</span></div>
+      <p class="lead">Sensores acústicos pasivos, asequibles y reemplazables para bases, patrullas e infraestructura crítica: nodos compactos de ocho micrófonos y super nodos de hasta 32 para postes y globos. Diseñados para desplegar, encender y ver al dron en un mapa 2D, con posición y orientación automáticas.</p>
+      <div class="cta-row">
+        <a class="btn" href="#demo">Probar la red simulada</a>
+        <a class="btn ghost" href="#familia">Ver los super nodos</a>
       </div>
+      <div class="facts">
+        <div><b>10+</b><span>nodos en el primer MVP</span></div>
+        <div><b>2</b><span>nodos para empezar a operar</span></div>
+        <div><b>20–50</b><span>nodos por red como escala objetivo</span></div>
+        <div><b>8–32</b><span>micrófonos, del compacto al super nodo</span></div>
+      </div>
+      <p class="scope-note">Del primer MVP de diez nodos a redes de cincuenta: una misma experiencia para desplegar, escuchar y localizar. <a href="#evidencia">Conoce la ingeniería detrás.</a></p>
       <div class="telemetry" aria-live="off">
         <div><span>Nodos que oyen</span><b id="telN">–</b></div>
         <div><span>Rumbo central</span><b id="telB">–</b></div>
         <div><span>Distancia</span><b id="telD">–</b></div>
         <div><span>Edad acústica</span><b id="telA">–</b></div>
-      </div>
-      <div class="cta-row">
-        <a class="btn" href="#demo">Probar la red simulada</a>
-        <a class="btn ghost" href="#familia">Ver los super nodos</a>
       </div>
       <p class="keyhint">Navega con <kbd>↓</kbd> <kbd>↑</kbd> o <kbd>Re Pág</kbd> <kbd>Av Pág</kbd></p>
     </div>
@@ -674,13 +682,13 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
         <span class="eyebrow">Por qué BatGuard</span>
         <h2>Escucha en la oscuridad, como el murciélago.</h2>
         <p>El murciélago se orienta y caza de noche por el sonido. Sus oídos comparan cuándo y con qué fuerza llega cada sonido, y con esa diferencia sabe de dónde viene.</p>
-        <p>Algunas especies, como el murciélago pálido, ni siquiera emiten: cazan en silencio escuchando los pasos de su presa. BatGuard hace lo mismo. No emite nada, escucha, compara la llegada del sonido en cada micrófono y ubica al dron sin delatarse.</p>
+        <p>La inspiración para BatGuard es escuchar la fuente: comparar cuándo llega el sonido a cada micrófono y combinar las direcciones de varios nodos. La detección acústica es pasiva; el enlace de radio sí transmite observaciones y mensajes de control.</p>
         <div class="batmap">
           <div><span>Murciélago</span><span>BatGuard</span></div>
           <div><b>Dos oídos</b><b>Ocho micrófonos por nodo, hasta 32 en los super nodos</b></div>
           <div><b>Diferencia de llegada entre oídos</b><b>Diferencias de microsegundos entre micrófonos</b></div>
-          <div><b>Caza escuchando, sin emitir</b><b>Sensor pasivo, sin firma de detección</b></div>
-          <div><b>Colonias de miles de oídos</b><b>Redes de cincuenta nodos o más</b></div>
+          <div><b>Escucha del entorno</b><b>Detección pasiva y comunicación por radio</b></div>
+          <div><b>Muchos oídos</b><b>Escala objetivo de 20–50 nodos o más</b></div>
         </div>
       </div>
     </div>
@@ -798,6 +806,17 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
       </div>
     </div>
     <p class="disclaimer">Vista superior en perspectiva del cabezal Standard8: ocho micrófonos en los vértices de un cubo de 80 mm, dos tetraedros intercalados, unos 14 cm entre puertos extremos, como punto de partida del diseño. Diferencia máxima de llegada: 138,6 mm ÷ 343 m/s ≈ 404 µs, unas 19,4 muestras a 48 kHz. El nodo estima un vector 3D; la central usa su rumbo horizontal y nunca supone la altitud del dron.</p>
+    <div class="nav-progress">
+      <span class="eyebrow">Avance de navegación · entrega 19</span>
+      <h3>La referencia del sonido debe acompañar al nodo.</h3>
+      <p class="muted">Mover o girar un nodo no debería mover al dron en el mapa. La nueva integración GNSS/IMU conecta posición, orientación y sonido en una misma referencia, también mientras el receptor se desplaza.</p>
+      <div class="tiers">
+        <div><span class="mount">Un mapa común</span><h3>Posición del arreglo</h3><p>La antena y los micrófonos pueden estar separados. Al girar el nodo, esa separación también gira y debe corregirse.</p></div>
+        <div><span class="mount">El instante correcto</span><h3>Pose de la captura</h3><p>Una pose fuera de tiempo o una calibración incompatible excluyen la observación hasta recuperar una referencia válida.</p></div>
+        <div><span class="mount">Continuidad de la red</span><h3>Una referencia confiable</h3><p>Si la referencia de un nodo pierde validez, la central aprovecha la evidencia de los demás y recupera su aporte cuando vuelve a ser útil.</p></div>
+      </div>
+      <p class="evidence-note">Puente de navegación probado en simulación con 2, 10, 20 y 50 receptores, incluidos movimiento y fallos de referencia.</p>
+    </div>
   </div>
 </section>
 
@@ -837,7 +856,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
       <div><span class="mount">globo cautivo</span><h3>Super nodo de globo</h3><p>Ultra12 o Ultra16 en un cabezal rígido y ligero, con protección de viento propia y una IMU que mide cada balanceo del cabezal, no del globo.</p></div>
     </div>
     <p class="famnote"><b>Un super nodo suma como un nodo más.</b> La central combina Standard8 y Ultra en la misma red y pesa cada observación por su calidad, no por cuántos micrófonos la produjeron.</p>
-    <p class="disclaimer">Geometrías ilustrativas, como las del software: cubo para Standard8 y esfera para los Ultra. Las aperturas son rangos de diseño entre puertos; cada cabezal se elige por desempeño medido. Los cinco perfiles ya corren en el firmware C11 y en la central simulada. Audio a 48 kHz en PCM de 16 bits.</p>
+    <p class="disclaimer">Geometrías ilustrativas, como las del software: cubo para Standard8 y esfera para los Ultra. Las aperturas son rangos de diseño entre puertos. Los cinco perfiles ya corren en firmware C11 de host y en la central simulada. Audio a 48 kHz en PCM de 16 bits.</p>
   </div>
 </section>
 
@@ -879,7 +898,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
       <li data-k="4"><b>Reporta</b><span>Envía cada observación con la pose del instante de captura.</span></li>
       <li data-k="5"><b>Se adapta</b><span>Si se mueve o gira, actualiza su pose. Si la pose es dudosa, se aparta un momento y vuelve solo.</span></li>
     </ol>
-    <p class="disclaimer">El ciclo resaltado sigue al nodo lanzado: del vuelo a la primera observación, sin intervención de nadie.</p>
+    <p class="disclaimer">El ciclo ilustrado sigue al nodo lanzado: del vuelo a la primera observación. El MVP incluye además un nodo que aporta mientras se mueve.</p>
   </div>
 </section>
 
@@ -888,7 +907,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
   <div class="wrap">
     <div class="eyebrow"><span class="num">08</span>La red en vivo</div>
     <h2>Cincuenta nodos, una imagen del cielo.</h2>
-    <p class="lead">Más nodos, más precisión. Cada nodo que oye al dron suma una dirección independiente, y la región donde puede estar se encoge: en esta simulación pasa de unos <b id="precL10">44</b> m con 10 nodos a unos <b id="precL50">11</b> m con 50. Los anillos marcan super nodos Ultra16 en postes. Mueve el dron, apaga nodos, gíralos o cambia el despliegue.</p>
+    <p class="lead">Cada nodo que oye al dron suma una dirección independiente. En esta simulación, la región donde puede estar pasa de unos <b id="precL10">44</b> m con 10 nodos a unos <b id="precL50">11</b> m con 50. Los anillos marcan super nodos Ultra16 en postes. Mueve el dron, apaga nodos, gíralos o cambia el despliegue.</p>
     <div class="demo">
       <div class="mapcol"><div class="mapbox">
         <canvas id="map" width="1000" height="640" aria-label="Mapa simulado de la red acústica. Arrastra el dron o toca un nodo para desconectarlo."></canvas>
@@ -897,7 +916,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
           <div id="ultraLegend"><b class="ringkey"></b>super nodo Ultra16 en poste</div>
           <div><i style="background:var(--warn)"></i>nodo consultado por la central</div>
           <div><i style="background:var(--alert)"></i>nodo excluido por incoherente</div>
-          <div><i style="background:var(--accent)"></i>estimación, región 95 % y pista</div>
+          <div><i style="background:var(--accent)"></i>posición histórica, región y pista simuladas</div>
           <div><i style="background:var(--ink);opacity:.35"></i>frente de onda a 343 m/s</div>
           <div id="covLegend" hidden>cobertura: dirección<span class="covbar"></span>posición firme</div>
         </div>
@@ -944,7 +963,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
           <p class="why" id="why"></p>
           <div class="readout">
             <div><span>Nodos que aportan</span><b id="roContrib">–</b></div>
-            <div><span>Región 95 %</span><b id="roRegion">–</b></div>
+            <div><span>Región ilustrativa</span><b id="roRegion">–</b></div>
             <div><span>Edad de la estimación</span><b id="roAge">–</b></div>
             <div><span>Altitud</span><b>desconocida</b></div>
           </div>
@@ -952,7 +971,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
         <div class="card">
           <h4>Precisión según nodos desplegados</h4>
           <canvas id="precChart" aria-label="Gráfico: tamaño típico de la región de posición según el número de nodos"></canvas>
-          <div class="preckey"><span><i class="pk1"></i>región típica (95 %)</span><span><i class="pk2"></i>red actual</span><span><i class="pk3"></i>medida en vivo</span></div>
+          <div class="preckey"><span><i class="pk1"></i>región típica del modelo</span><span><i class="pk2"></i>red actual</span><span><i class="pk3"></i>simulación en curso</span></div>
           <p class="why" id="precText">–</p>
           <p class="precnote">La geometría también cuenta: prueba el despliegue en línea o agrupado.</p>
         </div>
@@ -962,7 +981,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
         </div>
       </div>
     </div>
-    <p class="disclaimer">Simulación en tu navegador con geometría y ruido ilustrativos y un alcance supuesto de unos 380 m, igual para todos los nodos. Los super nodos aportan direcciones algo menos dispersas y la central las pesa por su calidad, como a cualquier otra. Aplica las reglas del motor de BatGuard: pose de cada captura, propagación del sonido, exclusión de observaciones incoherentes, cooperación entre nodos y altitud que nunca se inventa.</p>
+    <p class="disclaimer">Simulación en tu navegador con geometría, ruido y alcance ilustrativos. Explora cómo cambian la posición, su región y su antigüedad al variar el despliegue. Las cifras de esta demo representan su modelo, no mediciones de campo.</p>
   </div>
 </section>
 
@@ -1006,7 +1025,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
       <div>
         <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="31" r="2.5"/><circle cx="20" cy="31" r="2.5"/><circle cx="33" cy="31" r="2.5"/><circle cx="13.5" cy="19" r="2.5"/><circle cx="26.5" cy="19" r="2.5"/><circle cx="20" cy="7" r="2.5"/><path d="M8.5 28.5l3.5-7M18.5 28.5l-3.5-7M21.5 28.5l3.5-7M31.5 28.5l-3.5-7M15 16.5l3.5-7M25 16.5l-3.5-7"/></svg>
         <h3>Escalable</h3>
-        <p>De 2 a 50 nodos o más con el mismo manejo, y de 8 a 32 micrófonos por nodo según el soporte. Cada nodo que se suma achica la región donde puede estar el dron.</p>
+        <p>Operación útil desde dos nodos y escala de referencia de 20–50, con perfiles de 8 a 32 micrófonos. La mejora depende de calidad, distribución y tiempo de cada observación.</p>
       </div>
       <div>
         <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M27 5.5a7.5 7.5 0 0 0-7.2 9.6L6.6 28.3a3 3 0 0 0 4.2 4.2L24 19.3a7.5 7.5 0 0 0 9.6-7.2l-4.6 4.6-4.6-1.3-1.3-4.6z"/></svg>
@@ -1029,7 +1048,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
   <div class="wrap">
     <div class="eyebrow"><span class="num">10</span>Dónde encaja</div>
     <h2>Una capa más del sistema contra drones, no un reemplazo.</h2>
-    <p class="lead">BatGuard cubre los huecos que dejan las otras tecnologías y se suma a ellas en el mismo sistema.</p>
+    <p class="lead">BatGuard suma escucha acústica al sistema contra drones. Una capa complementaria para cubrir más terreno, de día o de noche.</p>
     <div class="tablewrap">
       <table>
         <thead><tr><th scope="col">Atributo</th><th scope="col" class="us">Red acústica BatGuard</th><th scope="col">Radar</th><th scope="col">Radiofrecuencia</th><th scope="col">Óptico / térmico</th></tr></thead>
@@ -1068,14 +1087,15 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
 <section class="slide inverse" id="evidencia" data-label="Lo construido">
   <div class="wrap">
     <div class="eyebrow"><span class="num">12</span>Lo que ya está construido</div>
-    <h2>Dieciocho rondas de ingeniería con evidencia reproducible.</h2>
-    <p class="lead">Cada pieza de la cadena, de la captura a la posición horizontal, ya corre en simulación con firmware C11 y pruebas automáticas, para el Standard8 y para los cuatro super nodos Ultra. Cada resultado queda con sus datos y sus hashes, listo para auditar.</p>
+    <h2>Diecinueve entregas de investigación con evidencia reproducible.</h2>
+    <p class="lead">Captura C11, procesamiento acústico, sesiones multicanal, red de laboratorio y localización horizontal: la ingeniería avanza con datos reproducibles. La entrega 19 suma integración GNSS/IMU para receptores móviles. Cada capacidad tiene evidencia y un siguiente paso concreto.</p>
     <div class="stats">
-      <div><b>466</b><span>pruebas automáticas aprobadas en el último corte</span></div>
+      <div><b>491</b><span>pruebas aprobadas en el corte archivado de la entrega 19</span></div>
       <div><b>50</b><span>nodos simulados en red con credenciales y reconexión</span></div>
       <div><b>5</b><span>perfiles de cabezal en firmware, de 8 a 32 micrófonos</span></div>
       <div><b>2 → 10</b><span>nodos con uno que se mueve y aporta a la posición</span></div>
     </div>
+    <p class="evidence-note">Corte del 17 de noviembre de 2026: software de host y simulación. Las 491 pruebas pertenecen a la ejecución archivada de la entrega 19; el siguiente paso es llevar la cadena al campo.</p>
     <div class="evsum" id="evSum"></div>
     <div class="tabs" id="evTabs">
       <button class="chipbtn on" data-f="all">Todo</button>
@@ -1092,8 +1112,8 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
 <section class="slide" id="ruta" data-label="Hoja de ruta">
   <div class="wrap">
     <div class="eyebrow"><span class="num">13</span>Hoja de ruta</div>
-    <h2>De la simulación a redes de cincuenta nodos.</h2>
-    <p class="lead">El mismo modelo operativo sirve para dos nodos o para cincuenta, y más allá. Cada fase suma capacidad sin cambiar cómo se despliega ni cómo se opera.</p>
+    <h2>La siguiente meta: diez nodos operativos y un mapa 2D.</h2>
+    <p class="lead">Diez nodos escuchando, detección de drones y mapa 2D en vivo, con un nodo aportando mientras se mueve. Desde ese primer MVP, crecer hacia redes de veinte a cincuenta sin cambiar la experiencia del operador.</p>
     <div class="roadlegend">
       <span><i style="background:var(--accent)"></i>completado</span>
       <span><i style="background:repeating-linear-gradient(90deg,var(--accent) 0 6px,transparent 6px 10px),var(--line)"></i>en integración</span>
@@ -1119,16 +1139,18 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     <div class="two" style="align-items:end">
       <p class="principle">Sofisticado por dentro. Sencillo por fuera.</p>
       <div style="display:grid; gap:12px; min-width:0">
-        <p>Alcance, precisión y autonomía se ajustan a cada escenario junto con el cliente y se certifican contra una referencia independiente. Cada resultado se entrega con sus datos, listo para auditar.</p>
+        <p>El próximo salto se construye con socios de campo: definir escenarios, integrar las primeras unidades y medir la cadena completa. Cada resultado se entrega con sus datos, listo para auditar.</p>
         <div class="cta-row"><a class="btn" href="#demo">Volver a la demo</a><a class="btn ghost" href="#inicio">Inicio</a></div>
       </div>
     </div>
   </div>
 </section>
 
+</main>
 <footer>
   <div class="wrap">
-    <p>BatGuard · corte del 16 de noviembre de 2026. Sistema de detección, aviso, localización y seguimiento; no incluye medios para actuar sobre aeronaves. Las capacidades descritas como objetivos provienen de la referencia de producto. Las cifras de evidencia provienen de pruebas de software y simulación, no de ensayos de campo.</p>
+    <p>BatGuard · actualizado el 17 de noviembre de 2026. Proyecto de detección, aviso, localización y seguimiento. Las capacidades de campo son objetivos de producto; la evidencia disponible corresponde a software de host y simulación.</p>
+    <p><a href="https://github.com/bultodepapas/batguard">Código de esta presentación y versiones publicadas</a> · <a href="#evidencia">Evidencia y pendientes</a> · <a href="#ruta">Camino al MVP</a></p>
   </div>
 </footer>
 
@@ -1157,7 +1179,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
   const current = () => { let best = 0, bd = Infinity; slides.forEach((s, i) => { const d = Math.abs(s.getBoundingClientRect().top); if (d < bd) { bd = d; best = i; } }); return best; };
   addEventListener('keydown', e => {
-    const t = e.target; if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+    const t = e.target; if (e.defaultPrevented || (t && (t.closest('input, textarea, select, button, a, [role="tab"]') || t.isContentEditable))) return;
     let d = 0; if (['ArrowDown', 'PageDown'].includes(e.key) || (e.key === ' ' && !e.shiftKey)) d = 1; else if (['ArrowUp', 'PageUp'].includes(e.key)) d = -1; else return;
     e.preventDefault(); const i = Math.max(0, Math.min(slides.length - 1, current() + d)); slides[i].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
   });
@@ -1843,7 +1865,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     ['Cabezal de micrófonos', 'Ocho micrófonos MEMS iguales, captados a la vez, en un cabezal 3D no coplanar con protección de viento removible. Perfil Standard8 a 48 kHz; los super nodos Ultra llevan de 12 a 32.', 'Candidato principal Infineon IM73D122, con IM72D128V, placas PUI y la referencia analógica Primo EM272Z1 como comparadores. Dos tetraedros intercalados de unos 14 cm entre puertos extremos.', 'mic'],
     ['Procesamiento', 'Captura continua de los ocho canales, calidad de señal, dirección de llegada local y candidatos por fuente.', 'Ruta económica: ESP32-S3 con cuatro líneas PDM. Referencia: frontend TLV320ADC6140 hacia Teensy 4.1. Super nodos: adquisición dedicada xcore.ai o frontends sincronizados. Firmware C11 v2 probado en host.', 'cpu'],
     ['Posición y orientación', 'IMU para la orientación y GNSS u otra vía para la posición, ligadas al instante de cada captura.', 'Orientación desde giroscopio implementada en firmware C y probada; trayectoria de pose ligada a cada ventana, también en movimiento. GNSS o UWB según el terreno.', 'imu'],
-    ['Radio', 'Observaciones, estado, pose y solicitudes cooperativas hacia la central.', 'LoRa como enlace principal: módulo SX1262 en el nodo y gateway multicanal SX1302/SX1303 en la central. Resumen de 80 bytes, el mismo para los cinco perfiles.', 'radio'],
+    ['Radio', 'Observaciones, estado, pose y solicitudes cooperativas hacia la central.', 'LoRa es el candidato prioritario: SX1262 en el nodo y gateway multicanal SX1302/SX1303. El resumen de laboratorio de 80 bytes admite los cinco perfiles.', 'radio'],
     ['Energía', 'Batería y gestión de carga para cada tipo de montaje.', 'Energía dimensionada para cada montaje y misión; en poste, alimentación por cable donde el sitio la ofrece.', 'bat'],
     ['Carcasa y montaje', 'Protección de agua y viento, drenaje, aislamiento de vibración y fijación a poste, imán o suelo, o portado por una persona.', 'Siete montajes en el diseño: poste, árbol, suelo, imán, portado, globo y lanzado.', 'case'],
   ];
@@ -2022,7 +2044,7 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     const groundY = x => 452 - 14 * Math.sin(x / 170) - 7 * Math.sin(x / 61 + 1);
     const slope = x => Math.atan((groundY(x + 2) - groundY(x - 2)) / 4);
     const M = {
-      patrulla: { t: 'Patrulla a pie', badge: ['ok', 'Aporta en movimiento'], how: 'El nodo va en la mochila, el hombro o el casco. Sigue escuchando y aportando mientras la persona camina, sin que tenga que detenerse ni tocar nada.', adapt: 'GNSS e IMU actualizan la pose en cada ventana de captura. Cada observación sale con la posición y orientación exactas de ese instante.' },
+      patrulla: { t: 'Patrulla a pie', badge: ['ok', 'Aporta en movimiento'], how: 'El nodo va en la mochila, el hombro o el casco. Sigue escuchando y aportando mientras la persona camina, sin que tenga que detenerse ni tocar nada.', adapt: 'GNSS e IMU actualizan la pose en cada ventana de captura. Cada observación lleva la posición y orientación estimadas de ese instante.' },
       poste: { t: 'Poste o mástil', badge: ['ok', 'Super nodo Ultra16 · fijo en altura'], how: 'Abrazadera en un poste, mástil o torre. Admite el nodo compacto o un super nodo Ultra16, ampliable a 24 o 32 micrófonos, con energía y datos por cable si el sitio los tiene. La altura despeja obstáculos.', adapt: 'Puede quedar torcido o girar con el viento sin consecuencias: la orientación medida en el propio cabezal corrige cada dirección antes de llevarla al mapa.' },
       arbol: { t: 'Árbol', badge: ['ok', 'Fijo y camuflado'], how: 'Correa al tronco o a una rama firme. Se camufla con el entorno y no necesita infraestructura.', adapt: 'El follaje y las ramas reflejan sonido y el viento mueve el soporte. La pose sigue esos movimientos y la calidad de cada observación se informa.' },
       suelo: { t: 'Suelo', badge: ['ok', 'El despliegue más rápido'], how: 'Apoyado o semienterrado en el terreno, en cualquier pendiente. Es el despliegue más rápido.', adapt: 'La inclinación del terreno se mide sola. Cada observación lleva su calidad, para que la central pese lo que aporta cada nodo.' },
@@ -2403,11 +2425,12 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
     ['acu', 'Calibración', 'Mapa de canales y retardos relativos para cualquier perfil, comprobado contra una dirección reservada.', 'Respuesta en frecuencia y referencias con incertidumbre medida en banco.', 'ok'],
     ['acu', 'Clasificación de drones', 'Contratos de candidatos por fuente y métricas de evaluación con abstención y desconocidos.', 'Entrenar y evaluar el clasificador con vuelos reales y datos reservados.', 'todo'],
     ['pose', 'Orientación en firmware', 'Integración de giroscopio en C11 con cuaterniones, límites y fallos enclavados, compilado con sanitizers.', 'Drivers de IMU/GNSS reales y rumbo absoluto sin referencia externa.', 'ok'],
-    ['pose', 'Nodo que se mueve', 'Con 2 y 10 nodos, uno se traslada y gira mientras aporta a la posición XY. Las sesiones multicanal ligan la pose estimada a cada ventana de captura.', 'Ensayo físico con referencia independiente de pose.', 'part'],
+    ['pose', 'Nodo que se mueve', 'Un receptor se traslada y gira mientras aporta a XY. Las sesiones multicanal y el puente de navegación ligan la pose a cada captura; la entrega 19 ensaya redes de 2, 10, 20 y 50 receptores.', 'Ensayo físico con referencia independiente de pose.', 'part'],
+    ['pose', 'Integración GNSS/IMU', 'Posiciones GNSS en un mapa común, alineamiento del cabezal y corrección entre antena y micrófonos. Guardas de tiempo y calibración, exclusión y recuperación verificadas.', 'Sensores físicos, rumbo autónomo y cotas contrastadas con referencia independiente; evaluar sesgos compartidos.', 'ok'],
     ['pose', 'Posición horizontal', 'Localizador XY con altitud desconocida, región conservadora y rechazo de elevaciones incompatibles.', 'Fuente móvil, seguimiento y región de incertidumbre calibrada.', 'part'],
     ['red', 'Pertenencia y credenciales', 'Registro de miembros, HMAC, protección contra repetición, revocación, transferencia y dos redes aisladas.', 'Emparejamiento por radio en campo y custodia segura de claves.', 'ok'],
     ['red', 'Red mixta', 'Diez nodos de los cinco perfiles en una misma central persistente, con credenciales y contexto propios de cada nodo.', 'Nodos compactos, de poste y de globo en la misma escena real.', 'ok'],
-    ['red', 'Enlace LoRa', 'Resumen de radio de 80 bytes para los cinco perfiles, en C y Python, y 66 ensayos temporales con colisiones, semidúplex y caducidad, de 2 a 50 nodos.', 'Radio SX1262 y gateway multicanal en banco, con entrega y latencia medidas.', 'ok'],
+    ['red', 'Enlace LoRa de laboratorio', 'Resumen de radio de 80 bytes para los cinco perfiles, en C y Python, y 66 ensayos temporales con colisiones, semidúplex y caducidad, de 2 a 50 nodos.', 'Radio SX1262 y gateway multicanal en banco, con entrega y latencia medidas.', 'ok'],
     ['red', 'Ciclo de vida', 'Altas, ausencias, reinicios y reconexiones con 2, 10, 20 y 50 nodos simulados; la central retira la evidencia caducada.', 'Radio LoRa en campo y servicio continuo de la central.', 'part'],
     ['red', 'Escucha cooperativa', 'La central pide evidencia a otros nodos; cada uno responde con la suya o se abstiene, sin dejar la escucha basal.', 'Selección dinámica de nodos por geometría y órdenes remotas autenticadas.', 'part'],
     ['op', 'Integridad de captura', 'Auditor de archivos, índices de muestra, pérdidas, CRC y journal con recuperación ante cierre abrupto.', 'Captura en placa con DMA y sincronía física entre canales.', 'ok'],
@@ -2443,20 +2466,19 @@ tbody tr:hover th, tbody tr:hover td:not(.us) { background: var(--field); }
   })();
   /* ---------- Hoja de ruta ---------- */
   const road = [
-    ['F0', 'Arquitectura y requisitos', 'full', 'Veinte requisitos trazables del producto, contratos entre nodo, red y central, y plan de validación.', 'Completado.'],
-    ['F1', 'Motor de red y fusión', 'full', 'Membresía con credenciales, reconexión, cooperación entre nodos, localización horizontal, red mixta y enlace LoRa, probados con hasta 50 nodos simulados.', 'Completado en simulación, con 466 pruebas automáticas.'],
-    ['F2', 'Nodo Standard8 de campo', 'prep', 'Cabezal de ocho micrófonos, procesador, pose, radio LoRa y energía integrados en una unidad robusta.', 'Firmware de captura de ocho canales y de orientación listo para la placa.'],
-    ['F3', 'Firma de drones', 'prep', 'Biblioteca de vuelos reales e interferentes y clasificador entrenado con datos reservados.', 'Contratos y evaluación listos para recibir datos de campo.'],
-    ['F4', 'Primera red en terreno', '', 'Diez nodos reales con mapa 2D en vivo, patrulla en movimiento, emparejamiento y cooperación.', 'Siguiente hito con socios de defensa.'],
-    ['F5', 'Escala a 50 nodos', '', 'Redes de cincuenta nodos o más cubriendo perímetros extensos, con latencia y capacidad medidas.', 'Arquitectura ya dimensionada para esta escala.'],
-    ['F6', 'Super nodos y montajes avanzados', '', 'Super nodos Ultra16 en poste, ampliables a 24 y 32, y Ultra12/16 en globo cautivo, junto a nodos lanzados, con ensayos de viento, oscilación e impacto.', 'Perfiles Ultra ya implementados en firmware y software.'],
-    ['F7', 'Despliegue operativo', '', 'Varias redes independientes operando lado a lado e integradas al sistema de defensa del cliente.', 'Objetivo de producto.'],
+    ['F0', 'Arquitectura y requisitos', 'full', 'Veinte requisitos trazables, contratos entre nodo, red y central y un plan de validación común.', 'Referencia de producto y evidencia organizadas.'],
+    ['F1', 'Ensayos y métricas', 'prep', 'Definir escenarios, referencias y objetivos de precisión, falsas alertas, latencia, autonomía y costo completo.', 'Protocolos preparados para acordar la evaluación con socios de campo.'],
+    ['F2', 'Nodo Standard8 de campo', 'prep', 'Integrar ocho micrófonos, adquisición, procesamiento, radio LoRa, energía y carcasa en una unidad de campo.', 'Captura y control C11 de host implementados para Standard8 y Ultra. Próximo paso: adaptadores y banco físico.'],
+    ['F3', 'Pose y movimiento', 'prep', 'Posición y orientación automáticas vinculadas a cada captura, con aporte útil mientras el nodo se mueve.', 'Puente GNSS/IMU y receptores móviles probados en simulación con 2, 10, 20 y 50 nodos.'],
+    ['F4', 'Detección por fuente', 'prep', 'Reconocer drones y mantener la clase y la dirección de una misma fuente frente a ruido e interferentes.', 'Contratos y evaluación preparados; siguiente paso: grabaciones reales, asociación y clasificador.'],
+    ['F5', 'MVP de diez nodos', '', 'Al menos diez nodos operativos, detección, mapa 2D y seguimiento, con emparejamiento y cooperación coordinados por la central.', 'Un banco de 2–4 prepara la integración. La meta completa incluye un nodo aportando durante movimiento.'],
+    ['F6', 'Capacidad y costo', 'prep', 'Medir la cadena captura→mapa, energía, servicio de radio y costo instalado con diez; preparar el crecimiento hacia 20–50.', 'Presupuestos y ensayos temporales de LoRa disponibles. La expansión física sigue al MVP.'],
+    ['F7', 'Aceptación de campo', '', 'Evaluar el sistema completo con diez o más nodos, movimiento y referencia independiente, con operación sencilla para el usuario.', 'Validar cada capacidad y montaje con sus propios ensayos. Standard8 y Ultra comparten el camino de producto.'],
   ];
   const roadEl = document.getElementById('road'), rd = document.getElementById('roadDetail');
   road.forEach((r, i) => { const b = document.createElement('button'); b.innerHTML = `<div class="bar ${r[2]}"></div><span class="id">${r[0]}</span><b>${r[1]}</b>`; b.onclick = () => showRoad(i); roadEl.appendChild(b); });
-  { const td = document.createElement('div'); td.className = 'today'; td.innerHTML = '<span>Hoy</span>'; roadEl.appendChild(td); }
   function showRoad(i) { [...roadEl.children].forEach((b, j) => b.classList.toggle('on', i === j)); const r = road[i]; rd.innerHTML = `<span class="meta">${r[0]} · ${r[2] === 'full' ? 'completado' : r[2] === 'prep' ? 'en integración' : 'próximo'}</span><h3>${r[1]}</h3><p>${r[3]}</p><p class="muted">${r[4]}</p>`; }
-  showRoad(1);
+  showRoad(3);
 })();
 </script>
 
